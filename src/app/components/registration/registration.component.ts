@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthApiService } from '../service/AuthApiService';
-import { passwordMatchingValidatior, userHasAtLeastOneRoleValidatior } from '../validators/validators';
+import { AuthApiService } from '../../service/AuthApiService';
+import { passwordMatchingValidatior, userHasAtLeastOneRoleValidatior } from '../../validators/validators';
 
 @Component({
   selector: 'app-registration',

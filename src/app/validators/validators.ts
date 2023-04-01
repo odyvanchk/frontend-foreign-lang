@@ -1,4 +1,4 @@
-import { AbstractControl, ValidationErrors, ValidatorFn } from "@angular/forms";
+import { AbstractControl, FormControl, ValidationErrors, ValidatorFn } from "@angular/forms";
 
 
 export const passwordMatchingValidatior: ValidatorFn = (control: AbstractControl): ValidationErrors | null => {
@@ -14,4 +14,22 @@ export const passwordMatchingValidatior: ValidatorFn = (control: AbstractControl
     const isStudent = control.get('isStudent');
     return (isStudent?.value || isTeacher?.value) ? null : { noRoles: true };
   };
+
+  export function requiredFileType( type: string ) {
+    return function (control: FormControl) {
+      const file = control.value;
+      if ( file ) {
+        const extension = file.name.split('.')[1].toLowerCase();
+        if ( type.toLowerCase() !== extension.toLowerCase() ) {
+          return {
+            requiredFileType: true
+          };
+        }
+        
+        return null;
+      }
+  
+      return null;
+    };
+  }
 

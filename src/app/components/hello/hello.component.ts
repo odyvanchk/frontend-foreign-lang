@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { AuthApiService } from '../service/AuthApiService';
+import { AuthApiService } from '../../service/AuthApiService';
 
 @Component({
   selector: 'app-hello',

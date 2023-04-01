@@ -1,0 +1,57 @@
+<div>
+    <div class = "container">
+         <div class = "rowFlex">
+             <div class = "myCard col-md-6 offset-md-3 offset-md-3">
+                 <h3>Teacher Info</h3>
+                 
+                 <div class = "card-body">
+                    //todo create countries
+                    <form [formGroup]="teacherInfoForm" (ngSubmit)="onSubmitForm()">
+                    <div class = "form-group">
+                        <label> Country: </label>
+                        <select name="country" formControlName="country"  class="form-control" id="country">
+                            <option value="0">Belarus</option>
+                            <option value="1">Canada</option>
+                            <option value="2">USA</option>
+                            <option value="3">UK</option>
+                            <option value="4">Russia</option>
+                        </select>
+                    </div>
+                    <div class="nativeOption">
+                    <input
+                        type="checkbox"
+                        id="isNative"
+                        formControlName="isNative"
+                        />
+                        Native
+                    </div>
+                    <div class = "form-group">
+                        <label> Expirience: </label>
+                        <input placeholder="Expirience in years" formControlName="experience" class="form-control" type="number"/>
+                    </div>
+                    <div class = "form-group">
+                        <label> Description: </label>
+                        <textarea placeholder="Write a couple of words about you" formControlName="description" class="form-control" ></textarea>
+                    </div>
+                    <div class = "form-group">
+                        <label> Price per hour: </label>
+                        <input placeholder="Price in usd" formControlName="defaultPrice" class="form-control" type="number"/>
+                    </div>
+                    <div class = "form-group">
+                        <label> Max student count on lesson: </label>
+                        <input placeholder="Student count" formControlName="defaultStudentCount" class="form-control" type="number"/>
+                    </div>
+                        <div class="form-group" >
+                            <input type="file" (input)="updateFile($event)"  class="form-control">
+                        </div>
+                    <button class="btn btn-success" type="submit" [disabled]=!teacherInfoForm.valid>Save</button>
+                </form>
+                
+            </div>
+            
+        </div>
+        
+    </div>
+    
+</div>
+                
