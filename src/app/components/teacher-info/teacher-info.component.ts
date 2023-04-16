@@ -17,7 +17,8 @@ export class TeacherInfoComponent implements OnInit {
     image: new FormControl(new File([],''), [Validators.required]),
     isNative: new FormControl(false),
     defaultPrice: new FormControl(0, Validators.min(1)),
-    defaultStudentCount: new FormControl(0, Validators.min(1))
+    defaultStudentCount: new FormControl(0, Validators.min(1)),
+    languages: new FormControl()
   });
 
   constructor(private teacherService: TeacherService) { }

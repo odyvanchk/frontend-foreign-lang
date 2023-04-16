@@ -2,9 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthApiService } from '../../service/AuthApiService';
-import FingerprintJS from '@fingerprintjs/fingerprintjs'
 import Cookies from 'universal-cookie';
-import { HeaderComponent } from '../header/header.component';
 
 @Component({
   selector: 'app-login',
@@ -31,16 +29,10 @@ export class LoginComponent implements OnInit {
     .login(this.loginForm)
     .subscribe({
       next: (res) => {
-       // console.log(res)
-
-       // if (res.status === 200){
-       //   console.log(res)
           const cookies = new Cookies();
           cookies.set('access', res.token, { path: '/', expires:new Date (Number(res.expTime)) });
-   // this.he.isUserLoggedIn = true;
           this.router.navigate(['/hello'])
           alert("user logged in")
-     // }   
       },
       error: (response) => {
         if (response.status === 400|| response.status === 401 || response.status === 404){

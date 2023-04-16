@@ -52,7 +52,6 @@ export class AuthApiService {
     return this.http.post(`${BASE_URL}${USER_URL}/auth/refresh`, resp, { withCredentials: true })
 }
 
- 
 
   helloStudent() {
     return this.http.get(`${BASE_URL}${USER_URL}/lessons/student`, {withCredentials : true})

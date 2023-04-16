@@ -14,13 +14,15 @@ import { HelloComponent } from './components/hello/hello.component';
 import { TeacherInfoComponent } from './components/teacher-info/teacher-info.component';
 import { TeacherService } from './service/TeacherService';
 import { HeaderComponent } from './components/header/header.component';
+import { TimeslotsComponent } from './components/timeslots/timeslots.component';
 
 
 const appRoutes: Routes = [
   { path: 'registration', component: RegistrationComponent },
   { path: 'login', component:  LoginComponent},
   { path: 'hello', component: HelloComponent},
-  { path: 'teachers/info', component: TeacherInfoComponent}
+  { path: 'teachers/info', component: TeacherInfoComponent},
+  { path: 'schedule', component: TimeslotsComponent}
 ];
 
 @NgModule({
@@ -31,6 +33,7 @@ const appRoutes: Routes = [
     HelloComponent,
     TeacherInfoComponent,
     HeaderComponent,
+    TimeslotsComponent,
   ],
   imports: [
     BrowserModule,

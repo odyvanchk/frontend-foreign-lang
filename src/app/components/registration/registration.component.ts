@@ -36,12 +36,8 @@ export class RegistrationComponent implements OnInit {
     .registr(this.regForm)
     .subscribe({
       next: (res) => {
-        console.log(res.status)
-        if (res.status === 201){
           alert("user is registered, please confirm email");
-          this.router.navigate(['/login'])
-       }   
-        
+          this.router.navigate(['/login'])   
       },
       error: (response) => {
         console.log(response)
