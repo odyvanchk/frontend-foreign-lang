@@ -1,25 +1,26 @@
-<div>
-       <div className = "container">
-            <div className = "rowFlex">
-                <div className = "myCard col-md-6 offset-md-3 offset-md-3">
-                    Login
-                    <div className = "card-body">
-                    <div className="panel panel-default">
-                    
-                    </div>
+<div class="content mat-app-background">
+       <div class = "container">
+            <div class = "rowFlex">
+                <div class = "col-md-6 offset-md-3 offset-md-3">
+                    <h3>Login</h3>
+                    <div class = "card-body mat-app-background">
                         <form class="form"  [formGroup]="loginForm" (ngSubmit)="onSubmitForm()">
-                            <div className = "form-group">
-                                <label> Email: </label>
-                                <input placeholder="Email Address" formControlName="email" class="form-control" type="email"/>
+                            <div class = "form-group">
+                                <mat-form-field>
+                                    <mat-label> Email: </mat-label>
+                                    <input matInput placeholder="Email Address" formControlName="email" class="form-control" type="email"/>
+                                    <div class="error" *ngIf="loginForm.controls['email'].errors?.['pattern']">
+                                        Wrong email
+                                    </div>
+                                </mat-form-field>
                             </div>
-                            <div class="error" *ngIf="loginForm.controls['email'].errors?.['pattern']">
-                                wrong email
-                            </div>
-                            <div className = "form-group">
-                                <label>Password: </label>
-                                <input placeholder="Password" formControlName="password" class="form-control" type="password" />
+                            <div class = "form-group">
+                                <mat-form-field>
+                                <mat-label>Password: </mat-label>
+                                <input matInput placeholder="Password" formControlName="password" class="form-control" type="password" />
+                                </mat-form-field>
                             </div>                            
-                            <button className="btn btn-success" type="submit" [disabled]=!loginForm.valid>login</button>
+                            <button class="btn btn-success" type="submit" [disabled]=!loginForm.valid>Login</button>
                         </form>
                     </div>
                 </div>

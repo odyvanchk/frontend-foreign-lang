@@ -1,0 +1,73 @@
+
+mat-form-field{
+  width: 485px;
+}
+.userRole{
+  display: flex;
+  gap: 10px
+}
+.rowFlex {
+    display: flex;
+    flex-direction: row;
+}
+
+.offset-md-3 {
+    margin-left: 23%;
+  }
+
+  .myCard {
+    //position: absolute;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    //background-color: #fff;
+    background-clip: border-box;
+    //border: 1px solid rgba(0,0,0,.125);
+    border-radius: .25rem;
+    padding: 10px;
+  }
+
+  .error {
+    color: rgb(185, 20, 20);
+  }
+
+  label {
+    margin-top: 5px;
+  }
+  .href{
+    text-align: center;
+    padding-top: 10px;
+  }
+  .btn {
+    width: 100%;
+    font-style: normal;
+    font-variant-caps: normal;
+    font-variant-ligatures: normal;
+    font-variant-numeric: normal;
+    font-variant-east-asian: normal;
+    font-variant-alternates: normal;
+    font-kerning: auto;
+    font-optical-sizing: auto;
+    font-feature-settings: normal;
+    font-variation-settings: normal;
+    font-weight: 400;
+    font-stretch: normal;
+    font-size: 14px;
+    line-height: 20px;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    letter-spacing: normal;
+  }
+  .container {
+    margin-top: 100px;
+  }
+
+
+.content {
+    padding: 16px;
+    min-height: 100vh;
+}
+
+mat-card {
+    max-width: 400px;
+}
