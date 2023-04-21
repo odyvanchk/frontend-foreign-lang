@@ -3,12 +3,9 @@
     flex-direction: row;
 }
 
-.offset-md-3 {
-    margin-left: 23%;
-  }
+
 
   .myCard {
-    position: absolute;
     display: flex;
     flex-direction: column;
     min-width: 0;

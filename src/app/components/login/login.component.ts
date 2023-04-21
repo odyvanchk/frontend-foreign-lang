@@ -30,7 +30,7 @@ export class LoginComponent implements OnInit {
     .subscribe({
       next: (res) => {
           const cookies = new Cookies();
-          cookies.set('access', res.token, { path: '/', expires:new Date (Number(res.expTime)) });
+          cookies.set('access', res.access, { path: '/', expires:new Date (Number(res.expTime)) });
           this.router.navigate(['/hello'])
           alert("user logged in")
       },

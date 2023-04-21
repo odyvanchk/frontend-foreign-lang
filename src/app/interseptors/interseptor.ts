@@ -39,7 +39,7 @@ export class AuthInterceptor implements HttpInterceptor {
 
     return next.handle(req).pipe(
       catchError((error: HttpErrorResponse) => {
-        if (error && (error.status === 401 || error.status === 403) && (!error.url?.includes("auth"))) {
+        if (error && (error.status === 401) && (!error.url?.includes("auth"))) {
           // 401 errors are most likely going to be because we have an expired token that we need to refresh.
           if (this.refreshTokenInProgress) {
             // If refreshTokenInProgress is true, we will wait until refreshTokenSubject has a non-null value
@@ -58,7 +58,7 @@ export class AuthInterceptor implements HttpInterceptor {
             return this.authService.updateFromRefresh().pipe(
               switchMap((res: any) => {
                 const cookies = new Cookies();
-                cookies.set('access', res.token, { path: '/', expires:new Date(Number(res.expTime)) });
+                cookies.set('access', res.access, { path: '/', expires:new Date(Number(res.expTime)) });
                 this.refreshTokenSubject.next(true);
                 return next.handle(this.addAuthenticationToken(req));
               }),

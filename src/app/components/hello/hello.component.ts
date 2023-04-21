@@ -38,7 +38,6 @@ export class HelloComponent implements OnInit {
     },
     error: (error) => {
       if (error.status === 401  || error.status === 404 || error.status === 400){
-        // eslint-disable-next-line array-callback-return
         if (error.error.errors){
         Object.values(error.error.errors).map((message) => {
             console.log(message);

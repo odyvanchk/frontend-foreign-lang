@@ -1,12 +1,13 @@
 
   
-  <nav class="navbar navbar-inverse bg-inverse" >
+  <nav class="navbar navbar-light" style="background-color: #caa2d1;" >
     <div class="container-fluid">
       <div class="navbar-header">
         <a class="navbar-brand" href="#">
           {{title}}
         </a>
       </div>
+      <div class="nav">
       <div class="nav-item" *ngIf="role==='student'">
         <a class="nav-link" routerLink="/search">
           SEARH
@@ -27,7 +28,7 @@
           LOGOUT
         </a>
       </div>
-      
+    </div>
     </div>
     <!-- <div class="collapse navbar-collapse">
         <li class="nav-item">

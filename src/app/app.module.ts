@@ -15,15 +15,9 @@ import { TeacherInfoComponent } from './components/teacher-info/teacher-info.com
 import { TeacherService } from './service/TeacherService';
 import { HeaderComponent } from './components/header/header.component';
 import { TimeslotsComponent } from './components/timeslots/timeslots.component';
+import { TeacherCabinetComponent } from './teacher-cabinet/teacher-cabinet.component';
+import { ProfileComponent } from './profile/profile.component';
 
-
-const appRoutes: Routes = [
-  { path: 'registration', component: RegistrationComponent },
-  { path: 'login', component:  LoginComponent},
-  { path: 'hello', component: HelloComponent},
-  { path: 'teachers/info', component: TeacherInfoComponent},
-  { path: 'schedule', component: TimeslotsComponent}
-];
 
 @NgModule({
   declarations: [
@@ -34,14 +28,15 @@ const appRoutes: Routes = [
     TeacherInfoComponent,
     HeaderComponent,
     TimeslotsComponent,
+    TeacherCabinetComponent,
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule,
-    RouterModule.forRoot(appRoutes)
+    ReactiveFormsModule
   ],
   providers: [
     AuthApiService,
