@@ -3,11 +3,30 @@
          <div class = "rowFlex">
              <div class = "myCard col-md-6 offset-md-3 offset-md-3">
                  <h3>Teacher Info</h3>
-                 
                  <div class = "card-body">
-                    //todo create countries
                     <form [formGroup]="teacherInfoForm" (ngSubmit)="onSubmitForm()">
-                    <div class = "form-group">
+                        <div class = "form-group">
+                            <label> Language: </label>
+                            <select name="languages" formControlName="languages"  class="form-control" id="languages">
+                                <option value="0">English</option>
+                                <option value="1">Spanish</option>
+                                <option value="2">Italian</option>
+                                <option value="3">German</option>
+                            </select>
+                        </div>
+                        
+                        <div class = "form-group">
+                            <label> Language level: </label>
+                            <select name="level" formControlName="level"  class="form-control" id="level">
+                                <option value="A1">Elementary</option>
+                                <option value="A2">Pre-intermediate</option>
+                                <option value="B1">Intermediate</option>
+                                <option value="B2">Upper-intermediate</option>
+                                <option value="C1">Advanced</option>
+                                <option value="C2">Professional</option>
+                            </select>
+                        </div>
+                        <div class = "form-group">
                         <label> Country: </label>
                         <select name="country" formControlName="country"  class="form-control" id="country">
                             <option value="0">Belarus</option>
@@ -16,42 +35,34 @@
                             <option value="3">UK</option>
                             <option value="4">Russia</option>
                         </select>
-                    </div>
-                    <div class="nativeOption">
-                    <input
-                        type="checkbox"
-                        id="isNative"
-                        formControlName="isNative"
-                        />
-                        Native
-                    </div>
-                    <div class = "form-group">
-                        <label> Expirience: </label>
-                        <input placeholder="Expirience in years" formControlName="experience" class="form-control" type="number"/>
-                    </div>
-                    <div class = "form-group">
-                        <label> Description: </label>
-                        <textarea placeholder="Write a couple of words about you" formControlName="description" class="form-control" ></textarea>
-                    </div>
-                    <div class = "form-group">
-                        <label> Price per hour: </label>
-                        <input placeholder="Price in usd" formControlName="defaultPrice" class="form-control" type="number"/>
-                    </div>
-                    <div class = "form-group">
-                        <label> Max student count on lesson: </label>
-                        <input placeholder="Student count" formControlName="defaultStudentCount" class="form-control" type="number"/>
-                    </div>
+                        </div>
+                        <div class="nativeOption form-group">
+                        <input
+                            type="checkbox"
+                            id="isNative"
+                            formControlName="isNative"
+                            />
+                            Is native
+                        </div>
+                        <div class = "form-group">
+                            <label> Expirience: </label>
+                            <input placeholder="Expirience in years" formControlName="experience" class="form-control" type="number"/>
+                        </div>
+                        <div class = "form-group">
+                            <label> Price per hour: </label>
+                            <input placeholder="Price in usd" formControlName="defaultPrice" class="form-control" type="number"/>
+                        </div>
+                        <div class = "form-group">
+                            <label> Description: </label>
+                            <textarea placeholder="Write a couple of words about you" formControlName="description" class="form-control" ></textarea>
+                        </div>
                         <div class="form-group" >
                             <input type="file" (input)="updateFile($event)"  class="form-control">
                         </div>
-                    <button class="btn btn-success" type="submit" [disabled]=!teacherInfoForm.valid>Save</button>
+                        <button class="btn btn-success" type="submit" [disabled]=!teacherInfoForm.valid>Save</button>
                 </form>
-                
             </div>
-            
         </div>
-        
     </div>
-    
 </div>
                 

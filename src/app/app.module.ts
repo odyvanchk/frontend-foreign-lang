@@ -25,14 +25,10 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatInputModule } from '@angular/material/input';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { TimeslotsComponent } from './components/timeslots/timeslots.component';
+import { TeacherCabinetComponent } from './teacher-cabinet/teacher-cabinet.component';
+import { ProfileComponent } from './profile/profile.component';
 
-
-const appRoutes: Routes = [
-  { path: 'registration', component: RegistrationComponent },
-  { path: 'login', component:  LoginComponent},
-  { path: 'hello', component: HelloComponent},
-  { path: 'teachers/info', component: TeacherInfoComponent}
-];
 
 @NgModule({
   declarations: [
@@ -42,6 +38,9 @@ const appRoutes: Routes = [
     HelloComponent,
     TeacherInfoComponent,
     HeaderComponent,
+    TimeslotsComponent,
+    TeacherCabinetComponent,
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,
@@ -62,6 +61,7 @@ const appRoutes: Routes = [
     MatInputModule,
     MatCheckboxModule,
     MatExpansionModule
+
   ],
   providers: [
     AuthApiService,
