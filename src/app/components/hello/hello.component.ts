@@ -18,9 +18,7 @@ export class HelloComponent implements OnInit {
     event.preventDefault();
     let prom;
     var target = event.target || event.srcElement || event.currentTarget;
-    var idAttr = target.attributes.id;
-    var value = idAttr.nodeValue;
-    // eslint-disable-next-line default-case
+    var value = target.textContent;
     switch(value){
         case "student":
             prom = this.authApi.helloStudent.bind(this.authApi);
@@ -33,9 +31,7 @@ export class HelloComponent implements OnInit {
     prom()
 .subscribe({
     next: (res:any) => {
-      //if (res.status === 200){
         alert(res.txt)
-   //  }    
     },
     error: (error) => {
       if (error.status === 401  || error.status === 404 || error.status === 400){

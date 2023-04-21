@@ -1,41 +1,29 @@
- <nav class="navbar navbar-inverse bg-inverse mat-app-background" >
-  <!-- <nav class="navbar navbar-light" style="background-color: #caa2d1;" > -->
+ <nav class="navbar navbar-inverse bg-inverse" >
     <div class="container-fluid">
       <div class="navbar-header">
-        <a class="navbar-brand mat-app-background" routerLink="/login">
-          {{title}}
-        </a>
+        <h1>ForePoint</h1>
       </div>
       <div class="nav">
       <div class="nav-item" *ngIf="role==='student'">
-        <a class="nav-link mat-app-background" routerLink="/search">
+        <a mat-button class="nav-link mat-app-background" routerLink="/search">
           SEARH
         </a>
       </div>
       <div class="nav-item" *ngIf="!isUserLoggedIn">
-        <a class="nav-link mat-app-background" routerLink="/login">
+        <a mat-button class="nav-link mat-app-background" routerLink="/login">
           LOGIN
         </a>
       </div>
       <div class="nav-item" >
-        <a class="nav-link mat-app-background" routerLink="/profile">
+        <a mat-button class="nav-link mat-app-background" routerLink="/profile">
           PROFILE
         </a>
       </div>
       <div class="nav-item" *ngIf="isUserLoggedIn">
-        <a class="nav-link mat-app-background" routerLink="/search">
+        <a mat-button class="nav-link mat-app-background" routerLink="/search">
           LOGOUT
         </a>
       </div>
     </div>
     </div>
-    <!-- <div class="collapse navbar-collapse">
-        <li class="nav-item">
-          <a class="nav-link" href="#">Settings</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled" href="#">Links</a>
-        </li>
-
-    </div> -->
   </nav>
