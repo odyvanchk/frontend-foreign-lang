@@ -1,9 +1,11 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, HostBinding } from '@angular/core';
+
+
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css']
+  styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent  {
 
@@ -11,8 +13,10 @@ export class HeaderComponent  {
   @Input() public isUserLoggedIn!: boolean;
   @Input() public role = "student";
 
+  
 
   ngOnInit(): void {
+    
   }
 
 }

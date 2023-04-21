@@ -1,13 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthApiService } from '../../service/AuthApiService';
 import { passwordMatchingValidatior, userHasAtLeastOneRoleValidatior } from '../../validators/validators';
 
+
 @Component({
   selector: 'app-registration',
   templateUrl: './registration.component.html',
-  styleUrls: ['./registration.component.css']
+  styleUrls: ['./registration.component.scss']
 })
 export class RegistrationComponent implements OnInit {
 
@@ -26,9 +27,9 @@ export class RegistrationComponent implements OnInit {
 
 
   constructor(private authApi: AuthApiService, private router: Router) { }
-
   
   ngOnInit(): void {
+   
   }
 
   onSubmitForm(){

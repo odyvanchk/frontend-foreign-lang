@@ -1,30 +1,29 @@
-
-  
-  <nav class="navbar navbar-light" style="background-color: #caa2d1;" >
+ <nav class="navbar navbar-inverse bg-inverse mat-app-background" >
+  <!-- <nav class="navbar navbar-light" style="background-color: #caa2d1;" > -->
     <div class="container-fluid">
       <div class="navbar-header">
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand mat-app-background" routerLink="/login">
           {{title}}
         </a>
       </div>
       <div class="nav">
       <div class="nav-item" *ngIf="role==='student'">
-        <a class="nav-link" routerLink="/search">
+        <a class="nav-link mat-app-background" routerLink="/search">
           SEARH
         </a>
       </div>
       <div class="nav-item" *ngIf="!isUserLoggedIn">
-        <a class="nav-link" routerLink="/login">
+        <a class="nav-link mat-app-background" routerLink="/login">
           LOGIN
         </a>
       </div>
       <div class="nav-item" >
-        <a class="nav-link" routerLink="/profile">
+        <a class="nav-link mat-app-background" routerLink="/profile">
           PROFILE
         </a>
       </div>
       <div class="nav-item" *ngIf="isUserLoggedIn">
-        <a class="nav-link" routerLink="/search">
+        <a class="nav-link mat-app-background" routerLink="/search">
           LOGOUT
         </a>
       </div>

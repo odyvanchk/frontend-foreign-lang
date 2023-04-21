@@ -1,0 +1,39 @@
+
+
+@use '@angular/material' as mat;
+@import "@angular/material/theming";
+@include mat.core();
+
+
+$front_diploma-primary: mat.define-palette(mat.$gray-palette,  900);
+$front_diploma-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$front_diploma-warn: mat.define-palette(mat.$red-palette);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$front_diploma-theme: mat.define-light-theme((
+  color: (
+    primary: $front_diploma-primary,
+    accent: $front_diploma-accent,
+    warn: $front_diploma-warn,
+  )
+));
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include mat.all-component-themes($front_diploma-theme);
+
+$front_diploma-dark-theme: mat.define-dark-theme((
+  color: (
+    primary: mat.define-palette(mat.$gray-palette),
+    accent: mat.define-palette(mat.$gray-palette),
+    warn: mat.define-palette(mat.$red-palette),
+  )
+));
+
+.darkMode{
+  @include mat.all-component-themes($front_diploma-dark-theme);
+}

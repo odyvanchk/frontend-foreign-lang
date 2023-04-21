@@ -14,6 +14,17 @@ import { HelloComponent } from './components/hello/hello.component';
 import { TeacherInfoComponent } from './components/teacher-info/teacher-info.component';
 import { TeacherService } from './service/TeacherService';
 import { HeaderComponent } from './components/header/header.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatIconModule } from '@angular/material/icon';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatInputModule } from '@angular/material/input';
+import { MatExpansionModule } from '@angular/material/expansion';
 import { TimeslotsComponent } from './components/timeslots/timeslots.component';
 import { TeacherCabinetComponent } from './teacher-cabinet/teacher-cabinet.component';
 import { ProfileComponent } from './profile/profile.component';
@@ -36,7 +47,21 @@ import { ProfileComponent } from './profile/profile.component';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RouterModule.forRoot(appRoutes),
+    BrowserAnimationsModule,
+    MatToolbarModule,
+    MatSlideToggleModule,
+    ReactiveFormsModule,
+    MatButtonModule,
+    MatCardModule,
+    MatIconModule,
+    MatDialogModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatCheckboxModule,
+    MatExpansionModule
+
   ],
   providers: [
     AuthApiService,

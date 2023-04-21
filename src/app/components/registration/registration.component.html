@@ -1,66 +1,77 @@
-<div>
-       <div class = "container">
+
+
+<div class="content mat-app-background">
+       <div class = "container ">
             <div class = "rowFlex">
-                <div class = "myCard col-md-6 offset-md-3 offset-md-3">
+                <div class = "col-md-6 offset-md-3 offset-md-3 ">
                     <h3>Registration</h3>
-                    
-                    <div class = "card-body">
-                   
+                    <div class = "card-body mat-app-background" >
                         <form class="form"  [formGroup]="regForm" (ngSubmit)="onSubmitForm()">
                             <div class = "form-group">
-                                <label> Login: </label>
-                                <input placeholder="Login" formControlName="login" class="form-control" />
+                                <mat-form-field>
+                                <mat-label > Login: </mat-label>
+                                <input matInput placeholder="Login" formControlName="login" class="form-control" />
                                 <div class="error" *ngIf=" regForm.controls['login'].errors?.['minlength'] || 
                                                             regForm.controls['login'].errors?.['maxlength'] "  >
                                     login should contain 4-15 characters
                                 </div>
+                            </mat-form-field>
                             </div>
                             <div class = "form-group">
-                                <label>Password: </label>
-                                <input placeholder="Password" formControlName="password" class="form-control" type="password" />
+                                <mat-form-field>
+                                <mat-label>Password: </mat-label>
+                                    <input matInput placeholder="Password" formControlName="password" class="form-control" type="password" />
                                 <div class="error" *ngIf=" regForm.controls['password'].errors?.['minlength'] || 
                                                             regForm.controls['password'].errors?.['pattern'] ||
                                                              regForm.controls['password'].errors?.['maxlength'] "  >
                                     password should contain 8-20 characters, [a-z], [A-Z], [0-9] 
                                 </div>
+                                </mat-form-field>
                             </div>
                             <div class = "form-group">
-                                <label> Confirm Password: </label>
-                                <input placeholder="Confirm Password" formControlName="confirmPassword" class="form-control" type="password" />
+                                <mat-form-field>
+                                <mat-label> Confirm Password: </mat-label>
+                                <input matInput placeholder="Confirm Password" formControlName="confirmPassword" class="form-control" type="password" />
                                 <div class="error" *ngIf="regForm.hasError('notSame')">
                                     Passwords do not match
-                                </div> 
+                                </div>
+                            </mat-form-field> 
                             </div>
                             <div class="userRole">
-                            <input
-                                type="checkbox"
+                                <mat-checkbox 
                                 id="isTeacher"
-                                formControlName="isTeacher"
-                                />
+                                formControlName="isTeacher">
                                 Teacher
-                            
-                            <input
-                                type="checkbox"
+                                </mat-checkbox>
+
+                            <mat-checkbox
                                 id="isStudent"
-                                formControlName="isStudent"
-                                />
+                                formControlName="isStudent">
                                 Student
+                            </mat-checkbox> 
+
                             </div>
                             <div  *ngIf="regForm.hasError('noRoles')">
                                 Choose at least one Role
                             </div> 
                             <div class = "form-group">
-                                <label> Email: </label>
-                                <input placeholder="Email Address" formControlName="email" class="form-control" type="email"/>
+                                <mat-form-field>
+                                <mat-label> Email: </mat-label>
+                                <input matInput placeholder="Email Address" formControlName="email" class="form-control" type="email"/>
+                                <div class="error" *ngIf="regForm.controls['email'].errors?.['pattern']">
+                                    Wrong email
+                                </div>
+                            </mat-form-field>
                             </div>
-                            <div class="error" *ngIf="regForm.controls['email'].errors?.['pattern']">
-                                wrong email
-                            </div>
+                            
                             <button class="btn btn-success" type="submit" [disabled]=!regForm.valid>Save</button>
+                            <div class="href"><a class="mat-app-background" [routerLink]="['/login']">Sign in</a></div>
                         </form>
                     
-                        <a class="btn" [routerLink]="['/login']">sign in</a>
+                       
+                        
                     </div>
+                   
                 </div>
             </div>
 

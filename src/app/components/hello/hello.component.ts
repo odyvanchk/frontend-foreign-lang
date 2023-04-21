@@ -5,13 +5,14 @@ import { AuthApiService } from '../../service/AuthApiService';
 @Component({
   selector: 'app-hello',
   templateUrl: './hello.component.html',
-  styleUrls: ['./hello.component.css']
+  styleUrls: ['./hello.component.scss']
 })
 export class HelloComponent implements OnInit {
 
   constructor(private authApi: AuthApiService) { }
 
   ngOnInit(): void {
+    
   }
   helloRole = (event : any) => {
     event.preventDefault();
