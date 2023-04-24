@@ -1,0 +1,76 @@
+<div>
+    <div class = "container mat-app-background">
+         <div class = "rowFlex">
+             <div class = "myCard col-md-6 offset-md-3 offset-md-3">
+                 <h3>Teacher Info</h3>
+                 <div class = "card-body mat-app-background">
+                    <form [formGroup]="searchCriteria" (ngSubmit)="onSubmitForm()">
+                        <div class = "form-group">
+                        <!-- <mat-form-field> -->
+                            <mat-label> Language: </mat-label>
+                            <select name="language" formControlName="language"  id="language">
+                                <option value="ENGLISH">English</option>
+                                <option value="SPANISH">Spanish</option>
+                                <option value="ITALIAN">Italian</option>
+                                <option value="GERMAN">German</option>
+                            </select>
+                        <!-- </mat-form-field> -->
+                        </div>
+                        
+                        <div class = "form-group">
+                            <label> Language level from: </label>
+                            <select  name="levelFrom" formControlName="levelFrom"  class="form-control" id="levelFrom">
+                                <option value="A1">Elementary</option>
+                                <option value="A2">Pre-intermediate</option>
+                                <option value="B1">Intermediate</option>
+                                <option value="B2">Upper-intermediate</option>
+                                <option value="C1">Advanced</option>
+                                <option value="C2">Professional</option>
+                            </select>
+                        </div>
+                        <div class = "form-group">
+                        <mat-label> Country: </mat-label>
+                        <select name="country" formControlName="country"  class="form-control" id="country">
+                            <option value="0">Belarus</option>
+                            <option value="1">Canada</option>
+                            <option value="2">USA</option>
+                            <option value="3">UK</option>
+                            <option value="4">Russia</option>
+                        </select>
+                        </div>
+
+                        <div class="nativeOption">
+                            <mat-checkbox 
+                            id="isNative"
+                            formControlName="isNative">
+                            Is native
+                            </mat-checkbox>
+                        </div>
+                        <div class = "form-group">
+                            <mat-label> Expirience from: </mat-label>
+                            <input matInput placeholder="Expirience in years" formControlName="experienceFrom" class="form-control" type="number"/>
+
+                            <mat-label> Expirience to: </mat-label>
+                            <input matInput placeholder="Expirience in years" formControlName="experienceTo" class="form-control" type="number"/>
+                        </div>
+                        <div class = "form-group">
+                            <mat-label> Mark from: </mat-label>
+                            <input matInput placeholder="Mark" formControlName="markFrom" class="form-control" type="number"/>
+
+                            <mat-label> Mark to: </mat-label>
+                            <input matInput placeholder="Mark" formControlName="markTo" class="form-control" type="number"/>
+                        </div>
+                        <div class = "form-group">
+                            <mat-label> Price per hour from: </mat-label>
+                            <input matInput placeholder="Price in usd" formControlName="defaultPriceFrom" class="form-control" type="number"/>
+                            
+                            <mat-label> Price per hour to: </mat-label>
+                            <input matInput placeholder="Price in usd" formControlName="defaultPriceTo" class="form-control" type="number"/>
+                        </div>
+                        <button class="btn btn-success" type="submit">Search</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+                

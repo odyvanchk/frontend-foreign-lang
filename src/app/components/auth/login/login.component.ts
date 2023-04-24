@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthApiService } from '../../service/AuthApiService';
+import { AuthApiService } from '../../../service/AuthApiService';
 import Cookies from 'universal-cookie';
 
 @Component({
@@ -29,8 +29,21 @@ export class LoginComponent implements OnInit {
     .login(this.loginForm)
     .subscribe({
       next: (res) => {
+        localStorage.removeItem('id')
+        localStorage.removeItem('student')
+        localStorage.removeItem('teacher')
+
           const cookies = new Cookies();
           cookies.set('access', res.access, { path: '/', expires:new Date (Number(res.expTime)) });
+          localStorage.setItem('id',res.id)
+          res.roles.forEach((element: { name: string; }) => {
+            if (element.name == "STUDENT") {
+              localStorage.setItem('student','true')
+            }
+            if (element.name == "TEACHER") {
+              localStorage.setItem('teacher','true')
+            }
+          });
           this.router.navigate(['/hello'])
           alert("user logged in")
       },
