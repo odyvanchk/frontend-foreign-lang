@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { TeacherService } from '../../service/TeacherService';
-import { requiredFileType } from '../../validators/validators';
+import { TeacherService } from '../../../service/TeacherService';
+import { requiredFileType } from '../../../validators/validators';
 
 @Component({
   selector: 'app-teacher-info',

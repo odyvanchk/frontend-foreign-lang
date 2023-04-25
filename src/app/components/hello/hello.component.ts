@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { AuthApiService } from '../../service/AuthApiService';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-hello',
@@ -9,7 +10,7 @@ import { AuthApiService } from '../../service/AuthApiService';
 })
 export class HelloComponent implements OnInit {
 
-  constructor(private authApi: AuthApiService) { }
+  constructor(private authApi: AuthApiService, private router: Router) { }
 
   ngOnInit(): void {
     
@@ -32,6 +33,7 @@ export class HelloComponent implements OnInit {
 .subscribe({
     next: (res:any) => {
         alert(res.txt)
+        this.router.navigate([`/teachers/${1}/schedule/book`])
     },
     error: (error) => {
       if (error.status === 401  || error.status === 404 || error.status === 400){

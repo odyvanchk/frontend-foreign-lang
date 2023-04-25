@@ -3,14 +3,14 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { RegistrationComponent } from './components/registration/registration.component';
+import { RegistrationComponent } from './components/auth/registration/registration.component';
 import { AuthApiService } from './service/AuthApiService';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthInterceptor } from './interseptors/interseptor';
-import { LoginComponent } from './components/login/login.component';
+import { LoginComponent } from './components/auth/login/login.component';
 import { HelloComponent } from './components/hello/hello.component';
-import { TeacherInfoComponent } from './components/teacher-info/teacher-info.component';
+import { TeacherInfoComponent } from './components/teacher/teacher-info/teacher-info.component';
 import { TeacherService } from './service/TeacherService';
 import { HeaderComponent } from './components/header/header.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -24,9 +24,14 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatInputModule } from '@angular/material/input';
 import { MatExpansionModule } from '@angular/material/expansion';
-import { TimeslotsComponent } from './components/timeslots/timeslots.component';
-import { TeacherCabinetComponent } from './teacher-cabinet/teacher-cabinet.component';
+import { TimeslotsComponent } from './components/schedule/timeslots/timeslots.component';
+import { TeacherCabinetComponent } from './components/teacher/teacher-cabinet/teacher-cabinet.component';
 import { ProfileComponent } from './profile/profile.component';
+import { SearchFilterComponent } from './search-filter/search-filter.component';
+import { MatOptionModule } from '@angular/material/core';
+import { TeachersListComponent } from './components/teacher/teachers-list/teachers-list.component';
+import { TeacherScheduleComponent } from './components/schedule/teacher-schedule/teacher-schedule.component';
+import { ScheduleService } from './service/ScheduleService';
 
 
 @NgModule({
@@ -40,6 +45,9 @@ import { ProfileComponent } from './profile/profile.component';
     TimeslotsComponent,
     TeacherCabinetComponent,
     ProfileComponent,
+    SearchFilterComponent,
+    TeachersListComponent,
+    TeacherScheduleComponent,
   ],
   imports: [
     BrowserModule,
@@ -49,8 +57,10 @@ import { ProfileComponent } from './profile/profile.component';
     ReactiveFormsModule,
     BrowserAnimationsModule,
     MatToolbarModule,
+    MatOptionModule,
     MatSlideToggleModule,
     ReactiveFormsModule,
+    MatCheckboxModule,
     MatButtonModule,
     MatCardModule,
     MatIconModule,
@@ -63,6 +73,7 @@ import { ProfileComponent } from './profile/profile.component';
   providers: [
     AuthApiService,
     TeacherService,
+    ScheduleService,
     {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}  
   ],
   bootstrap: [AppComponent]

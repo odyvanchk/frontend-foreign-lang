@@ -1,0 +1,11 @@
+<p>teachers-list works!  {{data.totalCount}}</p>
+<div class="day-column" *ngFor="let desc of data.teachersDescriptions">
+    <!-- <a routerLink="/detail/{{slot.time}}">
+        <span class="badge">{{hero.id}}</span> {{hero.name}}
+    </a> -->
+<div class="col-sm day">{{desc.language}}</div>
+<div class="col-sm day">{{desc.languageLevel}}</div>
+
+<button type="button" class="btn btn-light btn-time">Schedule</button>
+<button type="button" class="btn btn-light btn-time">Add to black list</button>
+</div>

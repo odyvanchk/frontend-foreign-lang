@@ -19,4 +19,11 @@ export class TeacherService {
         .post(`${BASE_URL}/teachers/${id}`, formModel);
   }  
 
+  search(searchCriteria: any) :Observable<any>{
+    let o :any = Object.fromEntries(Object.entries(searchCriteria.value)
+        .filter(([_, v]) => v != null));
+    return this.http
+    .get(`${BASE_URL}/teachers/search`, {params: o});
+  }
+
 }

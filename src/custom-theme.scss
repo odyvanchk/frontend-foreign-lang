@@ -37,3 +37,8 @@ $front_diploma-dark-theme: mat.define-dark-theme((
 .darkMode{
   @include mat.all-component-themes($front_diploma-dark-theme);
 }
+
+.html, .body {
+  min-height: 100%;
+}
+
