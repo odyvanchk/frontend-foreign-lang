@@ -3,11 +3,6 @@
     flex-direction: row;
 }
 
-/* .form {
-    display: flex;
-    width: auto;
-    align-items: end;
-} */
 
 .day-column {
     display: flow-root;
@@ -18,7 +13,7 @@
 
 .day {
     font-size:larger;
-    margin: 25px 0;
+    margin: 0 0 15px 0;
 }
 
 .btn-time {
@@ -68,6 +63,5 @@
       color: rgba(154, 38, 38, 0.65);
       transform: translateY(0);
     }
-
 
 
