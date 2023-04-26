@@ -32,6 +32,8 @@ import { MatOptionModule } from '@angular/material/core';
 import { TeachersListComponent } from './components/teacher/teachers-list/teachers-list.component';
 import { TeacherScheduleComponent } from './components/schedule/teacher-schedule/teacher-schedule.component';
 import { ScheduleService } from './service/ScheduleService';
+import { TeacherDetailComponent } from './components/teacher/teacher-detail/teacher-detail.component';
+import { StudentService } from './service/StudentService';
 
 
 @NgModule({
@@ -48,6 +50,7 @@ import { ScheduleService } from './service/ScheduleService';
     SearchFilterComponent,
     TeachersListComponent,
     TeacherScheduleComponent,
+    TeacherDetailComponent,
   ],
   imports: [
     BrowserModule,
@@ -74,6 +77,7 @@ import { ScheduleService } from './service/ScheduleService';
     AuthApiService,
     TeacherService,
     ScheduleService,
+    StudentService,
     {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}  
   ],
   bootstrap: [AppComponent]

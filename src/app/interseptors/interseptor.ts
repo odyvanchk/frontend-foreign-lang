@@ -29,7 +29,7 @@ export class AuthInterceptor implements HttpInterceptor {
     }
 
   intercept(req: HttpRequest<any>,next: HttpHandler): Observable<HttpEvent<any>> {
-    if (!(req.url==`${BASE_URL}/teachers` && req.method== 'POST')) {
+    if (!(req.url.includes(`${BASE_URL}/teachers`) && req.method== 'POST')) {
       req = req.clone({
         headers: req.headers.set("Content-Type", "application/json")
       });

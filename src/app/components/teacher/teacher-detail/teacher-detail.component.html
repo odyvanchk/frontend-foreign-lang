@@ -1,0 +1,44 @@
+<div class = "d-flex mat-app-background" >
+    <mat-card class="d-flex example-card">
+        <img src="https://play.min.io/courses/{{info.photoRef}}" alt="teacher's photo">
+
+        <mat-card-header>
+          <mat-card-title>{{info.login}}</mat-card-title>
+
+        </mat-card-header>
+        
+        <mat-card-content class="mycard">
+            <div class="d-flex">
+                <mat-label class="col-sm day">Country:</mat-label>
+                <div class="col-sm day">{{info.country}}</div>
+            </div>
+            <div class="d-flex">
+                <mat-label class="col-sm day">Language:</mat-label>
+                <mat-label class="col-sm day">{{info.language}}</mat-label>
+            </div>
+            <div class="d-flex">
+                <mat-label class="col-sm day">Level:</mat-label>
+                <mat-label class="col-sm day">{{info.level}}</mat-label>
+            </div>
+            <div class="d-flex">
+                <mat-label class="col-sm day">Price:</mat-label>
+                <mat-label class="col-sm day">{{info.defaultPrice}}</mat-label>
+            </div>
+            <div class="d-flex">
+                <mat-label class="col-sm day">Mark:</mat-label>
+                <mat-label class="col-sm day">{{info.mark}}</mat-label>         
+            </div>
+            <div class="d-flex">
+                <mat-label class="col-sm day">Description:</mat-label>
+                <mat-label class="col-sm day">{{info.description}}</mat-label>         
+            </div>
+        </mat-card-content>
+    
+        <mat-card-actions>
+          <button routerLink="/teachers/{{info.id}}/schedule/book" mat-raised-button color="primary">        
+            schedule
+          </button>
+          <!-- <button mat-raised-button color="primary">SHARE</button> -->
+        </mat-card-actions>
+      </mat-card>
+</div>

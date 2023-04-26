@@ -18,7 +18,7 @@ export class TeacherInfoComponent implements OnInit {
     isNative: new FormControl(false),
     level: new FormControl('', Validators.required),
     defaultPrice: new FormControl(0, Validators.min(1)),
-    languages: new FormControl()
+    language: new FormControl()
   });
 
   constructor(private teacherService: TeacherService) { }
