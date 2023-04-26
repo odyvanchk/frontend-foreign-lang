@@ -28,10 +28,13 @@
                 add to black list
               </button>
             </div>
-            </div>
-            <!-- <mat-divider></mat-divider> -->
-
+            <mat-paginator #paginator [length]="totalCount"
+              [pageSize]="pageSize"
+              [pageIndex]="currentPage"
+              (page)="pageEvent = getServerData($event)">
+            </mat-paginator>
         </div>
+    </div>
 </div>
        
             

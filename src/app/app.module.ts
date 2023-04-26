@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { RegistrationComponent } from './components/auth/registration/registration.component';
@@ -34,6 +33,7 @@ import { TeacherScheduleComponent } from './components/schedule/teacher-schedule
 import { ScheduleService } from './service/ScheduleService';
 import { TeacherDetailComponent } from './components/teacher/teacher-detail/teacher-detail.component';
 import { StudentService } from './service/StudentService';
+import {MatPaginatorModule} from '@angular/material/paginator';
 
 
 @NgModule({
@@ -66,6 +66,7 @@ import { StudentService } from './service/StudentService';
     MatCheckboxModule,
     MatButtonModule,
     MatCardModule,
+    MatPaginatorModule,
     MatIconModule,
     MatDialogModule,
     MatFormFieldModule,

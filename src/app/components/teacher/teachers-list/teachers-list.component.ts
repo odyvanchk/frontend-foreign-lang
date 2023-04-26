@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { PageEvent } from '@angular/material/paginator';
 import { StudentService } from '../../../service/StudentService';
+import { TeacherService } from '../../../service/TeacherService';
 
 export interface ITeacherInfo {
   id: number;
@@ -71,22 +73,56 @@ export class TeacherInfo implements ITeacherInfo {
   templateUrl: './teachers-list.component.html',
   styleUrls: ['./teachers-list.component.css']
 })
-export class TeachersListComponent implements OnInit {  
-  teachersList : ITeacherInfo[] = [];
+export class TeachersListComponent implements OnInit {
 
+  teachersList : ITeacherInfo[] = [];
   @Input() data:any;
+  totalCount!: number;
+  pageSize!: number;
+  currentPage!: number;
+  pageEvent!: PageEvent;
+  searchCriteria : any;
   
-  constructor(private studentService: StudentService) { }
+  constructor(private studentService: StudentService, private teacherService: TeacherService) { }
 
   ngOnInit(): void {
-   // console.log( history.state.totalCount);
    let d : TeacherInfo[] = [];
 
+   if (history.state.teachersDescriptions) {
     history.state.teachersDescriptions
       .forEach((teacher: any) => {
         d.push(new TeacherInfo(teacher))
       })
       this.teachersList = d;
+      this.searchCriteria = history.state.searchCriteria;
+      this.currentPage = history.state.currentPage;
+      this.totalCount = history.state.totalCount;
+      this.pageSize = history.state.pageSize;
+   } else {
+    let event = new PageEvent();
+    event.pageIndex = 0;
+    this.searchCriteria ={}
+    this.teacherService
+    .searchByPage(this.searchCriteria, event)
+    .subscribe({
+      next: (res) => {
+        let d : TeacherInfo[] = [];
+        alert("default list")
+        res.teachersDescriptions
+          .forEach((teacher: any) => {
+            d.push(new TeacherInfo(teacher))
+        })
+      this.teachersList = d;
+      this.currentPage = res.currentPage;
+      this.totalCount = res.totalCount;
+      this.pageSize = res.pageSize;     
+    },
+    error: (res) => {
+        alert("error")
+    }
+    });
+   }
+    
   }
 
   addToBlackList(teacherId : number) {
@@ -101,4 +137,29 @@ export class TeachersListComponent implements OnInit {
       });
   }
 
-}
+  getServerData(event: PageEvent): any {
+    this.teacherService
+    .searchByPage(this.searchCriteria, event)
+    .subscribe({
+      next: (res) => {
+        let d : TeacherInfo[] = [];
+        alert("saved")
+        res.teachersDescriptions
+          .forEach((teacher: any) => {
+            d.push(new TeacherInfo(teacher))
+        })
+      this.teachersList = d;
+      this.currentPage = res.currentPage;
+      this.totalCount = res.totalCount;
+      this.pageSize = res.pageSize;
+        
+    },
+    error: (res) => {
+        alert("error")
+    }
+    });
+  }  
+
+}  
+
+

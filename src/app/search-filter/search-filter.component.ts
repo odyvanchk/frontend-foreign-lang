@@ -29,17 +29,24 @@ export class SearchFilterComponent implements OnInit {
   }
 
   public onSubmitForm() {
+    let criteria = this.getCriteria();
     this.teacherService
-    .search(this.searchCriteria)
+    .search(criteria)
     .subscribe({
       next: (res) => {
         alert("saved")
+        res.searchCriteria = criteria;
         this.router.navigate(['/teachers'], {state: res})
     },
     error: (res) => {
         alert("error")
     }
   });
+  }
+
+  getCriteria() : any {
+    return Object.fromEntries(Object.entries(this.searchCriteria.value)
+  .filter(([_, v]) => v != null));
   }
 
 }
