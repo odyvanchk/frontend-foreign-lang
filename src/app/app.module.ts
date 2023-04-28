@@ -4,7 +4,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { RegistrationComponent } from './components/auth/registration/registration.component';
 import { AuthApiService } from './service/AuthApiService';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS, HttpClient } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthInterceptor } from './interseptors/interseptor';
 import { LoginComponent } from './components/auth/login/login.component';
@@ -35,6 +35,10 @@ import { TeacherDetailComponent } from './components/teacher/teacher-detail/teac
 import { StudentService } from './service/StudentService';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { TeachersScheduleComponent } from './teachers-schedule/teachers-schedule.component';
+import {TranslateModule, TranslateLoader} from '@ngx-translate/core'
+import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+
+
 
 
 @NgModule({
@@ -74,7 +78,16 @@ import { TeachersScheduleComponent } from './teachers-schedule/teachers-schedule
     MatFormFieldModule,
     MatInputModule,
     MatCheckboxModule,
-    MatExpansionModule
+    MatExpansionModule,
+    TranslateModule.forRoot(
+      {
+        loader: {
+          provide: TranslateLoader,
+          useFactory: (http:HttpClient) => {return new TranslateHttpLoader(http, './assets/i18n/', '.json');},
+          deps: [HttpClient]
+        }
+      }
+    )
   ],
   providers: [
     AuthApiService,

@@ -1,0 +1,38 @@
+{
+    "appBar": {
+        "options": {
+            "login" : "Login",
+            "registration" : "registration",
+            "search" : "search",
+            "profile": "profile"
+        },
+        "select_languages": "Change language"
+    },
+    "Login" : {
+        "loginText" : "Sign In" ,
+        "email" : "Email: ",
+        "wrong_email" : "Wrong_email",
+        "placeholderEmail": "Email",
+        "placeholderPass": "Password",
+        "password" : "Password: ",
+        "sign_up": "Sign up"
+    },
+    "Registration" : {
+        "Text" : "Login" ,
+        "login" : "Login",
+        "wrong_login": "login should contain 4-15 characters",
+        "wrong_pass": "password should contain 8-20 characters, [a-z], [A-Z], [0-9] ",
+        "pass_not_equal" : "Passwords do not match",
+        "email" : "Email: ",
+        "wrong_email" : "Wrong_email",
+        "placeholderEmail": "Email",
+        "placeholderPass": "Password",
+        "password" : "Password: ",
+        "confirm_password" : "Confirm Password:",
+        "teacher": "Teacher",
+        "student": "Student",
+        "choose_role": "Choose at least one Role",
+        "save": "Save", 
+        "sign_in": "Sign In"
+    }
+}
