@@ -34,8 +34,8 @@ export class AuthApiService {
 
   login(loginForm: FormGroup ): Observable<any> {
     let user = loginForm.getRawValue()
-    user.fingerprint = this.visitorId;
-    console.log(this.visitorId)
+    // user.fingerprint = this.visitorId;
+    // console.log(this.visitorId)
 
     const cookie = new Cookies();
     cookie.remove('access')
@@ -45,11 +45,11 @@ export class AuthApiService {
 
   }
 
-  updateFromRefresh() : Observable<any>{
-    const cookies = new Cookies();
-    const jwtToken = cookies.get('refresh'); 
-    let resp = {"fingerprint" : this.visitorId}
-    return this.http.post(`${BASE_URL}${USER_URL}/auth/refresh`, resp, { withCredentials: true })
+  updateFromRefresh() : Observable<any> {
+    // const cookies = new Cookies();
+    // const jwtToken = cookies.get('refresh'); 
+    // let resp = {"fingerprint" : this.visitorId}
+    return this.http.post(`${BASE_URL}${USER_URL}/auth/refresh`, localStorage.getItem("id"), { withCredentials: true })
 }
 
 

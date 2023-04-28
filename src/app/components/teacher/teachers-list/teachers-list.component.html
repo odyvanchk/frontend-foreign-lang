@@ -1,11 +1,49 @@
-<p>teachers-list works!  {{data.totalCount}}</p>
-<div class="day-column" *ngFor="let desc of data.teachersDescriptions">
-    <!-- <a routerLink="/detail/{{slot.time}}">
-        <span class="badge">{{hero.id}}</span> {{hero.name}}
-    </a> -->
-<div class="col-sm day">{{desc.language}}</div>
-<div class="col-sm day">{{desc.languageLevel}}</div>
+<div class = "height mat-app-background" >
+    <h3 class="headline-3">Teachers List</h3>
+    <div class="d-flex align-items-center justify-content-center">
+    <br>
+        <div class = "d-flex gap flex-sm-column" style="min-width: 50%">
+            <mat-card class="day-column card d-flex flex-row" *ngFor="let teacher of teachersList">
+                
+                <img src="https://play.min.io/courses/{{teacher.photoRef}}">
+                <div class="content">
+                <div>
+                    <mat-label  class="mat-label">Country: </mat-label>
+                    <mat-label class="col-sm day">{{teacher.country}}</mat-label> 
+                </div>
 
-<button type="button" class="btn btn-light btn-time">Schedule</button>
-<button type="button" class="btn btn-light btn-time">Add to black list</button>
+                <div>
+                    <mat-label class="mat-label">Language: </mat-label>
+                    <mat-label class="col-sm day">{{teacher.language}}</mat-label>
+                </div>
+
+                <div>
+                    <mat-label class="mat-label">Level: </mat-label>
+                    <mat-label class="col-sm day">{{teacher.level}}</mat-label>
+                </div>
+
+                <div>
+                    <mat-label class="mat-label">Price per hour: </mat-label>
+                    <mat-label class="col-sm day">{{teacher.defaultPrice}}</mat-label>
+                </div>
+            </div>
+            <div class="d-flex flex-sm-column gap">
+                <button routerLink="/teachers/{{teacher.id}}" mat-raised-button color="primary">        
+                    more..
+                </button>
+                <button (click)="addToBlackList(teacher.id)" mat-raised-button color="primary">        
+                    add to black list
+                </button>
+            </div>
+            
+            </mat-card>
+            <mat-paginator class="mat-app-background" #paginator [length]="totalCount"
+              [pageSize]="pageSize"
+              [pageIndex]="currentPage"
+              (page)="pageEvent = getServerData($event)">
+            </mat-paginator>
+        </div>
+    </div>
 </div>
+       
+            

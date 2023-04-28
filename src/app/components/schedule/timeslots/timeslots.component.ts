@@ -57,7 +57,7 @@ export class TimeslotsComponent implements OnInit {
 
   constructor(private route: ActivatedRoute, private scheduleService: ScheduleService) { 
     this.route.params.subscribe( params => this.id = params['id'] );
-    console.log(this.id)
+    // console.log(this.id)
   }  
   
   

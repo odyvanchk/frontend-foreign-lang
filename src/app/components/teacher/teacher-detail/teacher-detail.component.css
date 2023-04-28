@@ -1,5 +1,9 @@
-.mat-paginator {
-    width: inherit;
+.f-flex {
+    width: 60% ;
+}
+
+.mycard {
+    width: 30%;
 }
 
 .height {
@@ -16,10 +20,6 @@ h3 {
 }
 .day-column {
     gap: 19px;
-}
-
-img {
-    width: 30%;
 }
 
 .gap {

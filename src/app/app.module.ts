@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { RegistrationComponent } from './components/auth/registration/registration.component';
@@ -32,6 +31,10 @@ import { MatOptionModule } from '@angular/material/core';
 import { TeachersListComponent } from './components/teacher/teachers-list/teachers-list.component';
 import { TeacherScheduleComponent } from './components/schedule/teacher-schedule/teacher-schedule.component';
 import { ScheduleService } from './service/ScheduleService';
+import { TeacherDetailComponent } from './components/teacher/teacher-detail/teacher-detail.component';
+import { StudentService } from './service/StudentService';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import { TeachersScheduleComponent } from './teachers-schedule/teachers-schedule.component';
 
 
 @NgModule({
@@ -48,6 +51,8 @@ import { ScheduleService } from './service/ScheduleService';
     SearchFilterComponent,
     TeachersListComponent,
     TeacherScheduleComponent,
+    TeacherDetailComponent,
+    TeachersScheduleComponent,
   ],
   imports: [
     BrowserModule,
@@ -63,6 +68,7 @@ import { ScheduleService } from './service/ScheduleService';
     MatCheckboxModule,
     MatButtonModule,
     MatCardModule,
+    MatPaginatorModule,
     MatIconModule,
     MatDialogModule,
     MatFormFieldModule,
@@ -74,6 +80,7 @@ import { ScheduleService } from './service/ScheduleService';
     AuthApiService,
     TeacherService,
     ScheduleService,
+    StudentService,
     {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}  
   ],
   bootstrap: [AppComponent]

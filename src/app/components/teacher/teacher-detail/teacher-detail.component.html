@@ -1,0 +1,49 @@
+<div class = "d-flex height justify-content-center mat-app-background" >
+    <div class="d-flex " style="height: max-content">
+        <br>
+    <mat-card class="d-flex flex-column example-card">
+        <img src="https://play.min.io/courses/{{info.photoRef}}" alt="teacher's photo">
+
+        <mat-card-header>
+          <mat-card-title>{{info.login}}</mat-card-title>
+
+        </mat-card-header>
+
+                <div class="content">
+                <div class="d-flex flex-column justify-content-start">
+                    <mat-label  class="mat-label">Country: </mat-label>
+                    <mat-label class="day">{{info.country}}</mat-label> 
+                </div>
+
+                <div class="d-flex flex-column">
+                    <mat-label class="mat-label">Language: </mat-label>
+                    <mat-label class="day">{{info.language}}</mat-label>
+                </div>
+
+                <div class="d-flex flex-column">
+                    <mat-label class="mat-label">Level: </mat-label>
+                    <mat-label class="day">{{info.level}}</mat-label>
+                </div>
+
+                <div class="d-flex flex-column">
+                    <mat-label class="mat-label">Price per hour: </mat-label>
+                    <mat-label class="day">{{info.defaultPrice}}</mat-label>
+                </div>
+                <div *ngIf="info.description" class="d-flex flex-column">
+                    <mat-label class="mat-label">Description:</mat-label>
+                    <mat-label class="day">{{info.description}}</mat-label>         
+                </div>
+                <div *ngIf="info.mark" class="d-flex flex-column">
+                    <mat-label class="mat-label">Mark:</mat-label>
+                    <mat-label class="day">{{info.mark}}</mat-label>         
+                </div>
+            </div>
+        <mat-card-actions>
+          <button routerLink="/teachers/{{info.id}}/schedule/book" mat-raised-button color="primary">        
+            schedule
+          </button>
+          <!-- <button mat-raised-button color="primary">SHARE</button> -->
+        </mat-card-actions>
+      </mat-card>
+      </div>
+</div>
