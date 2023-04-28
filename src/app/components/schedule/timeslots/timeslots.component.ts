@@ -3,23 +3,23 @@ import { ActivatedRoute } from '@angular/router';
 import { ScheduleService } from '../../../service/ScheduleService';
 
 
-interface ITimeSlot {
-  timeInHHMM: Date,
+export interface ITimeSlot {
+  time: Date,
   isDisabled: boolean,
   selected: boolean,
-  id: number;
+  id: number | null ;
 }
 
 export class TimeSlot implements ITimeSlot {
-  timeInHHMM: Date;
+  time: Date;
   isDisabled: boolean;
   selected: boolean;
-  id: number;
+  id: number | null;
 
-  constructor(time : Date, disable : boolean, selected: boolean, id : number) {
+  constructor(time : Date, disable : boolean, selected: boolean, id : number | null) {
     this.id = id;
     this.isDisabled = disable
-    this.timeInHHMM = time
+    this.time = time
     this.selected = selected
   }
 
@@ -67,7 +67,7 @@ export class TimeslotsComponent implements OnInit {
      this.selected.push(slot);
     } else {
       this.selected.filter((value, index) => {
-      if (value.timeInHHMM.getTime() == slot.timeInHHMM.getTime()) {
+      if (value.time.getTime() == slot.time.getTime()) {
         this.selected.splice(index, 1);
         return true;
         }
@@ -139,7 +139,7 @@ export class TimeslotsComponent implements OnInit {
       let wasSelectedBefore : boolean = false;
       if (element.dateTimeStart.getDay() ==  (this.startWeekDate.getDay() + day)) {
         this.selected.forEach((el) => {
-            if (el.timeInHHMM.getTime() == element.dateTimeStart.getTime()) {
+            if (el.time.getTime() == element.dateTimeStart.getTime()) {
               daySlots.push(new TimeSlot(element.dateTimeStart, !element.available, true, element.id))
               wasSelectedBefore = true;
             }
@@ -155,7 +155,9 @@ export class TimeslotsComponent implements OnInit {
 
   onSubmitForm(){
     this.scheduleService
-    .book(this.id, this.selected.map((slot) => slot.id))
+    .book(this.id, this.selected.map(
+      (slot) => slot.id!)
+      )
     .subscribe({
       next: (res) => {
         console.log(res)

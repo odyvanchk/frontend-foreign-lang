@@ -6,10 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
+
   teacher: boolean;
+  student: boolean;
 
   constructor() {
     this.teacher = localStorage.getItem("teacher") == 'true'
+    this.student = localStorage.getItem("student") == 'true'
    }
 
   ngOnInit(): void {

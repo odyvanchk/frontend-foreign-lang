@@ -68,6 +68,9 @@ export class AuthInterceptor implements HttpInterceptor {
             );
           }
         } else {
+          if (error.status === 403) {
+            alert("access denied")
+          }
           return throwError(error);
         }
       })
