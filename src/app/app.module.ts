@@ -24,7 +24,6 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatInputModule } from '@angular/material/input';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { TimeslotsComponent } from './components/schedule/timeslots/timeslots.component';
-import { TeacherCabinetComponent } from './components/teacher/teacher-cabinet/teacher-cabinet.component';
 import { ProfileComponent } from './profile/profile.component';
 import { SearchFilterComponent } from './search-filter/search-filter.component';
 import { MatOptionModule } from '@angular/material/core';
@@ -46,7 +45,6 @@ import { TeachersScheduleComponent } from './teachers-schedule/teachers-schedule
     TeacherInfoComponent,
     HeaderComponent,
     TimeslotsComponent,
-    TeacherCabinetComponent,
     ProfileComponent,
     SearchFilterComponent,
     TeachersListComponent,
