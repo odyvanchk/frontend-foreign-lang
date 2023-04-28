@@ -34,6 +34,7 @@ import { ScheduleService } from './service/ScheduleService';
 import { TeacherDetailComponent } from './components/teacher/teacher-detail/teacher-detail.component';
 import { StudentService } from './service/StudentService';
 import {MatPaginatorModule} from '@angular/material/paginator';
+import { TeachersScheduleComponent } from './teachers-schedule/teachers-schedule.component';
 
 
 @NgModule({
@@ -51,6 +52,7 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     TeachersListComponent,
     TeacherScheduleComponent,
     TeacherDetailComponent,
+    TeachersScheduleComponent,
   ],
   imports: [
     BrowserModule,

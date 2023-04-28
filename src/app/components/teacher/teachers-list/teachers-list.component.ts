@@ -107,7 +107,7 @@ export class TeachersListComponent implements OnInit {
     .subscribe({
       next: (res) => {
         let d : TeacherInfo[] = [];
-        alert("default list")
+        // alert("default list")
         res.teachersDescriptions
           .forEach((teacher: any) => {
             d.push(new TeacherInfo(teacher))
@@ -143,7 +143,7 @@ export class TeachersListComponent implements OnInit {
     .subscribe({
       next: (res) => {
         let d : TeacherInfo[] = [];
-        alert("saved")
+        // alert("saved")
         res.teachersDescriptions
           .forEach((teacher: any) => {
             d.push(new TeacherInfo(teacher))

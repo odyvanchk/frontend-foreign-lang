@@ -1,0 +1,36 @@
+.mat-paginator {
+    width: inherit;
+}
+
+.height {
+    height: 100%;
+    min-height: 100vh;
+}
+
+h3 {
+    text-align: center;
+}
+
+.content {
+    width: 45%;
+}
+.day-column {
+    gap: 19px;
+}
+
+img {
+    width: 30%;
+}
+
+.gap {
+    gap: 4px;
+}
+
+.card {
+    padding: 21px;
+}
+
+.mat-label {
+    font-weight: 900;
+    font-size: 20px;
+}
