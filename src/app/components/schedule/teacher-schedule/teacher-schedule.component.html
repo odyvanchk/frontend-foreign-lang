@@ -1,1 +1,49 @@
-<p>teacher-schedule works!</p>
+<div class = " height mat-app-background" >
+    <h3 class=" display-4 headline-6" >Schedule</h3>
+    <div class="container">
+    <div class=" d-flex align-items-center justify-content-around">
+    <button [disabled]="hasPrevWeek()"
+          matPrefix
+          mat-icon-button
+          color="primary"
+          (click)="changeWeek(true)"
+          matTooltip="previous week"
+          matTooltipPosition="below"
+        >
+          <mat-icon>keyboard_arrow_left</mat-icon>
+        </button>
+    <div>{{startWeekDate | date: 'fullDate'}}</div>
+    <div>{{finishWeekDate | date: 'fullDate'}}</div>
+    <button
+          matPrefix
+          mat-icon-button
+          color="primary"
+          (click)="changeWeek(false)"
+          matTooltip="next week"
+          matTooltipPosition="below"
+        >
+          <mat-icon>keyboard_arrow_right</mat-icon>
+        </button>
+    </div> 
+    <br>
+    <form class="form" (ngSubmit)="onSubmitForm()">
+        <div class = "d-flex justify-content-between">
+            <div class="d-flex flex-column align-items-center" *ngFor="let slot of slots">
+                    <!-- <a routerLink="/detail/{{slot.time}}">
+                        <span class="badge">{{hero.id}}</span> {{hero.name}}
+                    </a> -->
+            <mat-label class="day">{{slot.day}}</mat-label>
+            <div style="width: 100%" *ngFor="let time of slot.timeslots">
+                <button mat-raised-button type="button" [disabled]="time.isDisabled" class="btn-time" [ngClass]="{'mat-warn': time.selected}"
+                    (click)="ngOnClickSlot(time)">{{time.time | date : 'HH:mm'}}</button>
+            </div>
+            </div>
+        </div>
+        <div   style="display: flex; justify-content: flex-end">
+        <button class="btn btn-success" type="submit">Save</button>
+        </div>
+    </form>
+  </div>
+</div>
+       
+            

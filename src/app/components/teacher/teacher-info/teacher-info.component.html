@@ -1,64 +1,90 @@
-<div>
-    <div class = "container">
+<div class="mat-app-background">
+    <div class = "container ">
          <div class = "rowFlex">
              <div class = "myCard col-md-6 offset-md-3 offset-md-3">
                  <h3>Teacher Info</h3>
-                 <div class = "card-body">
-                    <form [formGroup]="teacherInfoForm" (ngSubmit)="onSubmitForm()">
+                 <div class = "card-body ">
+                    <form [formGroup]="teacherInfoForm" (ngSubmit)="onSubmitForm()" class="d-flex flex-column">
                         <div class = "form-group">
-                            <label> Language: </label>
-                            <select name="language" formControlName="language"  class="form-control" id="language">
-                                <option value="ENGLISH">English</option>
-                                <option value="SPANISH">Spanish</option>
-                                <option value="ITALIAN">Italian</option>
-                                <option value="GERMAN">German</option>
-                            </select>
+                        <mat-form-field >
+                            <mat-label>Language:</mat-label>
+                            <mat-select matNativeControl required formControlName="language" >
+                                <mat-option value="ENGLISH">English</mat-option>
+                                <mat-option value="SPANISH">Spanish</mat-option>
+                                <mat-option value="ITALIAN">Italian</mat-option>
+                                <mat-option value="GERMAN">German</mat-option>
+                            </mat-select>
+                          </mat-form-field>
                         </div>
-                        
+            
                         <div class = "form-group">
-                            <label> Language level: </label>
-                            <select name="level" formControlName="level"  class="form-control" id="level">
-                                <option value="ELEMENTARY">Elementary</option>
-                                <option value="PRE_INTERMEDIATE">Pre-intermediate</option>
-                                <option value="INTERMEDIATE">Intermediate</option>
-                                <option value="UPPER_INTERMEDIATE">Upper-intermediate</option>
-                                <option value="ADVANCED">Advanced</option>
-                                <option value="PROFESSIONAL">Professional</option>
-                            </select>
-                        </div>
-                        <div class = "form-group">
-                        <label> Country: </label>
-                        <select name="country" formControlName="country"  class="form-control" id="country">
-                            <option value="BELARUS">Belarus</option>
-                            <option value="CANADA">Canada</option>
-                            <option value="USA">USA</option>
-                            <option value="UK">UK</option>
-                            <option value="RUSSIA">Russia</option>
-                        </select>
-                        </div>
+                            <mat-form-field >
+                                <mat-label>Language level:</mat-label>
+                                <mat-select matNativeControl required formControlName="level" >
+                                    <mat-option value="ELEMENTARY">Elementary</mat-option>
+                                    <mat-option value="PRE_INTERMEDIATE">Pre-intermediate</mat-option>
+                                    <mat-option value="INTERMEDIATE">Intermediate</mat-option>
+                                    <mat-option value="UPPER_INTERMEDIATE">Upper-intermediate</mat-option>
+                                    <mat-option value="ADVANCED">Advanced</mat-option>
+                                    <mat-option value="PROFESSIONAL">Professional</mat-option>
+                                </mat-select>
+                              </mat-form-field>
+                            </div>
+                       
+                            <div class = "form-group">
+                                <mat-form-field >
+                                    <mat-label>Country:</mat-label>
+                                    <mat-select matNativeControl required formControlName="country" >
+                                        <mat-option value="BELARUS">Belarus</mat-option>
+                                        <mat-option value="CANADA">Canada</mat-option>
+                                        <mat-option value="USA">USA</mat-option>
+                                        <mat-option value="UK">UK</mat-option>
+                                        <mat-option value="RUSSIA">Russia</mat-option>
+                                    </mat-select>
+                                  </mat-form-field>
+                                </div>
                         <div class="nativeOption form-group">
-                        <input
-                            type="checkbox"
+                        <mat-checkbox
                             id="isNative"
                             formControlName="isNative"
-                            />
+                            >
                             Is native
+                        </mat-checkbox>
+
                         </div>
-                        <div class = "form-group">
-                            <label> Expirience: </label>
-                            <input placeholder="Expirience in years" formControlName="experience" class="form-control" type="number"/>
-                        </div>
-                        <div class = "form-group">
-                            <label> Price per hour: </label>
-                            <input placeholder="Price in usd" formControlName="defaultPrice" class="form-control" type="number"/>
-                        </div>
-                        <div class = "form-group">
-                            <label> Description: </label>
-                            <textarea placeholder="Write a couple of words about you" formControlName="description" class="form-control" ></textarea>
-                        </div>
-                        <div class="form-group" >
-                            <input type="file" (input)="updateFile($event)"  class="form-control">
-                        </div>
+
+                        <mat-form-field class = "form-group">
+                            <mat-label> Expirience: </mat-label>
+                            <input matInput placeholder="Expirience in years"  formControlName="experience" class="form-control" type="number"/>
+                        </mat-form-field>
+                        <mat-form-field class = "form-group">
+                            <mat-label> Price per hour: </mat-label>
+                            <input matInput placeholder="Price in usd"  formControlName="defaultPrice" class="form-control" type="number"/>
+                        </mat-form-field>
+                        <mat-form-field class = "form-group">
+                            <mat-label> Description: </mat-label>
+                            <textarea matInput placeholder="Write a couple of words about you"  formControlName="description" class="form-control"></textarea>
+                        </mat-form-field>
+                        <!-- <mat-form-field class = "form-group">
+                            <input matInput type="file" (input)="updateFile($event)"  class="form-control">
+                        </mat-form-field> -->
+                    
+                        <mat-form-field style="width: 100%;">
+                            <mat-label>File matInput</mat-label>
+                            <button type="button" mat-icon-button matPrefix (click)="f_input.click()">
+                        <mat-icon>attach_file</mat-icon>
+                      </button>
+                      <input type="text" readonly matInput [formControl]="display" />
+                            <input type="text" readonly matInput />
+                            <input
+                        type="file"
+                        multiple
+                        hidden
+                       #f_input
+                        (change)="updateFile($event)"
+                      />
+                            <mat-error>this field is required</mat-error>
+                        </mat-form-field>
                         <button class="btn btn-success" type="submit" [disabled]=!teacherInfoForm.valid>Save</button>
                 </form>
             </div>

@@ -3,23 +3,23 @@ import { ActivatedRoute } from '@angular/router';
 import { ScheduleService } from '../../../service/ScheduleService';
 
 
-interface ITimeSlot {
-  timeInHHMM: Date,
+export interface ITimeSlot {
+  time: Date,
   isDisabled: boolean,
   selected: boolean,
-  id: number;
+  id: number | null ;
 }
 
 export class TimeSlot implements ITimeSlot {
-  timeInHHMM: Date;
+  time: Date;
   isDisabled: boolean;
   selected: boolean;
-  id: number;
+  id: number | null;
 
-  constructor(time : Date, disable : boolean, selected: boolean, id : number) {
+  constructor(time : Date, disable : boolean, selected: boolean, id : number | null) {
     this.id = id;
     this.isDisabled = disable
-    this.timeInHHMM = time
+    this.time = time
     this.selected = selected
   }
 
@@ -67,7 +67,7 @@ export class TimeslotsComponent implements OnInit {
      this.selected.push(slot);
     } else {
       this.selected.filter((value, index) => {
-      if (value.timeInHHMM.getTime() == slot.timeInHHMM.getTime()) {
+      if (value.time.getTime() == slot.time.getTime()) {
         this.selected.splice(index, 1);
         return true;
         }
@@ -88,6 +88,11 @@ export class TimeslotsComponent implements OnInit {
     this.startWeekDate = this.getMonday()
     this.finishWeekDate.setDate(this.startWeekDate.getDate() + 6)
 
+    this.currentStartWeekDate.setHours(0);
+    this.currentStartWeekDate.setMinutes(0);
+    this.currentStartWeekDate.setSeconds(0);
+    this.currentStartWeekDate.setMilliseconds(0);
+
     this.startWeekDate.setHours(0);
     this.startWeekDate.setMinutes(0);
     this.startWeekDate.setSeconds(0);
@@ -105,11 +110,26 @@ export class TimeslotsComponent implements OnInit {
       next: (res) => {
         this.setUTCZoneToDate(res)
         this.slots = this.getSlotsFromRes(res);
+        this.disablePastSlots();
       },
       error: (er) => {
         alert("smth goes wrong")
       }
     })
+
+
+  }
+  disablePastSlots() {
+    if (this.currentStartWeekDate.getTime() == this.startWeekDate.getTime()) {
+      for (let i = 0; i <= getLocalDay(new Date()); i++) {
+        let today = new Date();
+        this.slots[i].timeslots.forEach((el) => {
+          if (el.time.getTime() < today.getTime()) {
+            el.isDisabled =true;
+          }
+        })
+      }
+    }  
   }
 
 
@@ -137,9 +157,9 @@ export class TimeslotsComponent implements OnInit {
     let daySlots = new Array();
     res.forEach((element:any) => {
       let wasSelectedBefore : boolean = false;
-      if (element.dateTimeStart.getDay() ==  (this.startWeekDate.getDay() + day)) {
+      if (getLocalDay(element.dateTimeStart) ==  getLocalDay(this.startWeekDate) + day) {
         this.selected.forEach((el) => {
-            if (el.timeInHHMM.getTime() == element.dateTimeStart.getTime()) {
+            if (el.time.getTime() == element.dateTimeStart.getTime()) {
               daySlots.push(new TimeSlot(element.dateTimeStart, !element.available, true, element.id))
               wasSelectedBefore = true;
             }
@@ -153,9 +173,13 @@ export class TimeslotsComponent implements OnInit {
   }
 
 
+  
+
   onSubmitForm(){
     this.scheduleService
-    .book(this.id, this.selected.map((slot) => slot.id))
+    .book(this.id, this.selected.map(
+      (slot) => slot.id!)
+      )
     .subscribe({
       next: (res) => {
         console.log(res)
@@ -182,6 +206,7 @@ export class TimeslotsComponent implements OnInit {
         console.log(res)
         this.setUTCZoneToDate(res)
         this.slots = this.getSlotsFromRes(res);
+        this.disablePastSlots();
       },
       error: (er) => {
         alert("smth goes wrong")
@@ -205,4 +230,12 @@ export class TimeslotsComponent implements OnInit {
     this.startWeekDate = date;
     this.finishWeekDate = datefinish 
   }
+}
+
+export function getLocalDay(date : Date) {
+  let day = date.getDay();
+  if (day == 0) { 
+    day = 7;
+  }
+  return day - 1;
 }

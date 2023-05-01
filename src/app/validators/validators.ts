@@ -15,21 +15,8 @@ export const passwordMatchingValidatior: ValidatorFn = (control: AbstractControl
     return (isStudent?.value || isTeacher?.value) ? null : { noRoles: true };
   };
 
-  export function requiredFileType( type: string ) {
-    return function (control: FormControl) {
-      const file = control.value;
-      if ( file ) {
-        const extension = file.name.split('.')[1].toLowerCase();
-        if ( type.toLowerCase() !== extension.toLowerCase() ) {
-          return {
-            requiredFileType: true
-          };
-        }
-        
-        return null;
-      }
-  
-      return null;
-    };
+  export const requiredFileType: ValidatorFn = (control: AbstractControl): ValidationErrors | null => {
+    let file : any = control.get('image');
+    return file?.value.size > 0 ? null : { noFile: true };
   }
 

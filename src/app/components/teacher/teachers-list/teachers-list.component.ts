@@ -30,25 +30,8 @@ export class TeacherInfo implements ITeacherInfo {
   description: string;
   login: string;
   photoRef: string;
-  // constructor(id : number, country: string, experience: number,
-  //   isNative: boolean,
-  //   level: string,
-  //   defaultPrice: number,
-  //   language: string,
-  //   mark: number,  
-  //   description: string) {
-  //     this.id = id;
-  //     this.country = country;
-  //     this.experience = experience;
-  //     this.isNative = isNative;
-  //     this.level = level;
-  //     this.defaultPrice = defaultPrice;
-  //     this.language = language;
-  //     this.mark = mark;  
-  //     this.description = description;
-  //   }
 
-    constructor(data: any) {
+  constructor(data: any) {
       this.id = data['id'];
       this.country = data['country'];
       this.experience = data['experience'];
@@ -61,9 +44,6 @@ export class TeacherInfo implements ITeacherInfo {
       this.login = data['login'];
       this.photoRef = data['photoRef'];
     }
-
-
-
 }
 
 

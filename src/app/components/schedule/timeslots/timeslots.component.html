@@ -34,8 +34,8 @@
                     </a> -->
             <mat-label class="day">{{slot.day}}</mat-label>
             <div style="width: 100%" *ngFor="let time of slot.timeslots">
-                <button type="button" [disabled]="time.isDisabled" class="btn btn-light btn-time" [ngStyle]="{'background-color': (time.selected) ?  'blue' : 'white'}"
-                    (click)="ngOnClickSlot(time)">{{time.timeInHHMM | date : 'HH:mm'}}</button>
+              <button mat-raised-button type="button" [disabled]="time.isDisabled" class="btn-time" [ngClass]="{'mat-warn': time.selected}"
+                    (click)="ngOnClickSlot(time)">{{time.time | date : 'HH:mm'}}</button>
             </div>
             </div>
         </div>

@@ -24,7 +24,6 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatInputModule } from '@angular/material/input';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { TimeslotsComponent } from './components/schedule/timeslots/timeslots.component';
-import { TeacherCabinetComponent } from './components/teacher/teacher-cabinet/teacher-cabinet.component';
 import { ProfileComponent } from './profile/profile.component';
 import { SearchFilterComponent } from './search-filter/search-filter.component';
 import { MatOptionModule } from '@angular/material/core';
@@ -37,8 +36,10 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import { TeachersScheduleComponent } from './teachers-schedule/teachers-schedule.component';
 import {TranslateModule, TranslateLoader} from '@ngx-translate/core'
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
-
-
+import { TeachersLessonsComponent } from './components/teacher/teachers-lessons/teachers-lessons.component';
+import { TeacherLessonService } from './service/lessons/TeacherLessonService';
+import { StudentLessonService } from './service/lessons/StudentLessonService';
+import { MatSelect, MatSelectModule } from '@angular/material/select';
 
 
 @NgModule({
@@ -50,13 +51,12 @@ import {TranslateHttpLoader} from '@ngx-translate/http-loader';
     TeacherInfoComponent,
     HeaderComponent,
     TimeslotsComponent,
-    TeacherCabinetComponent,
     ProfileComponent,
     SearchFilterComponent,
     TeachersListComponent,
     TeacherScheduleComponent,
     TeacherDetailComponent,
-    TeachersScheduleComponent,
+    TeachersLessonsComponent
   ],
   imports: [
     BrowserModule,
@@ -72,6 +72,7 @@ import {TranslateHttpLoader} from '@ngx-translate/http-loader';
     MatCheckboxModule,
     MatButtonModule,
     MatCardModule,
+    MatSelectModule,
     MatPaginatorModule,
     MatIconModule,
     MatDialogModule,
@@ -94,6 +95,8 @@ import {TranslateHttpLoader} from '@ngx-translate/http-loader';
     TeacherService,
     ScheduleService,
     StudentService,
+    TeacherLessonService,
+    StudentLessonService,
     {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}  
   ],
   bootstrap: [AppComponent]
