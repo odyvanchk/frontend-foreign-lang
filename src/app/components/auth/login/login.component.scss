@@ -10,7 +10,9 @@ mat-form-field{
   .offset-md-3 {
       margin-left: 23%;
     }
-  
+    .mat-input-element::placeholder{
+      color: #495057;
+    }
     .myCard {
       //position: absolute;
       display: flex;

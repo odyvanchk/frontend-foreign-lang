@@ -4,36 +4,36 @@
        <div class = "container ">
             <div class = "rowFlex">
                 <div class = "col-md-6 offset-md-3 offset-md-3 ">
-                    <h3>Registration</h3>
+                    <h3>{{'Registration.Text' | translate}}</h3>
                     <div class = "card-body mat-app-background" >
                         <form class="form"  [formGroup]="regForm" (ngSubmit)="onSubmitForm()">
                             <div class = "form-group">
                                 <mat-form-field>
-                                <mat-label > Login: </mat-label>
-                                <input matInput placeholder="Login" formControlName="login" class="form-control" />
+                                <mat-label > {{'Registration.login' | translate}} </mat-label>
+                                <input matInput placeholder='{{"Registration.login" | translate}}' formControlName="login" class="form-control" />
                                 <div class="error" *ngIf=" regForm.controls['login'].errors?.['minlength'] || 
                                                             regForm.controls['login'].errors?.['maxlength'] "  >
-                                    login should contain 4-15 characters
+                                                            {{'Registration.wrong_login' | translate}}
                                 </div>
                             </mat-form-field>
                             </div>
                             <div class = "form-group">
                                 <mat-form-field>
-                                <mat-label>Password: </mat-label>
-                                    <input matInput placeholder="Password" formControlName="password" class="form-control" type="password" />
+                                <mat-label>{{'Registration.password' | translate}} </mat-label>
+                                    <input matInput placeholder='{{"Registration.password | translate}}' formControlName="password" class="form-control" type="password" />
                                 <div class="error" *ngIf=" regForm.controls['password'].errors?.['minlength'] || 
                                                             regForm.controls['password'].errors?.['pattern'] ||
                                                              regForm.controls['password'].errors?.['maxlength'] "  >
-                                    password should contain 8-20 characters, [a-z], [A-Z], [0-9] 
+                                                             {{'Registration.wrong_pass' | translate}}
                                 </div>
                                 </mat-form-field>
                             </div>
                             <div class = "form-group">
                                 <mat-form-field>
-                                <mat-label> Confirm Password: </mat-label>
-                                <input matInput placeholder="Confirm Password" formControlName="confirmPassword" class="form-control" type="password" />
+                                <mat-label> {{'Registration.confirm_password' | translate}} </mat-label>
+                                <input matInput placeholder='{{"Registration.confirm_password" | translate}}' formControlName="confirmPassword" class="form-control" type="password" />
                                 <div class="error" *ngIf="regForm.hasError('notSame')">
-                                    Passwords do not match
+                                    {{'Registration.pass_not_equal' | translate}}
                                 </div>
                             </mat-form-field> 
                             </div>
@@ -41,31 +41,31 @@
                                 <mat-checkbox 
                                 id="isTeacher"
                                 formControlName="isTeacher">
-                                Teacher
+                                {{'Registration.teacher' | translate}}
                                 </mat-checkbox>
 
                             <mat-checkbox
                                 id="isStudent"
                                 formControlName="isStudent">
-                                Student
+                                {{'Registration.student' | translate}}
                             </mat-checkbox> 
 
                             </div>
                             <div  *ngIf="regForm.hasError('noRoles')">
-                                Choose at least one Role
+                                {{'Registration.choose_role' | translate}}
                             </div> 
                             <div class = "form-group">
                                 <mat-form-field>
-                                <mat-label> Email: </mat-label>
-                                <input matInput placeholder="Email Address" formControlName="email" class="form-control" type="email"/>
+                                <mat-label>  {{'Registration.email' | translate}} </mat-label>
+                                <input matInput placeholder='{{"Registration.email" | translate}}' formControlName="email" class="form-control" type="email"/>
                                 <div class="error" *ngIf="regForm.controls['email'].errors?.['pattern']">
-                                    Wrong email
+                                    {{'Registration.wrong_email' | translate}}
                                 </div>
                             </mat-form-field>
                             </div>
                             
-                            <button class="btn btn-success" type="submit" [disabled]=!regForm.valid>Save</button>
-                            <div class="href"><a class="mat-app-background" [routerLink]="['/login']">Sign in</a></div>
+                            <button class="btn btn-success" type="submit" [disabled]=!regForm.valid>{{'Registration.save' | translate}}</button>
+                            <div class="href"><a class="mat-app-background" [routerLink]="['/login']">{{'Registration.sign_in' | translate}}</a></div>
                         </form>
                     
                        

@@ -2,27 +2,27 @@
        <div class = "container">
             <div class = "rowFlex">
                 <div class = "col-md-6 offset-md-3 offset-md-3">
-                    <h3>Login</h3>
+                    <h3>{{'Login.loginText' | translate}}</h3>
                     <div class = "card-body mat-app-background">
                         <form class="form"  [formGroup]="loginForm" (ngSubmit)="onSubmitForm()">
                             <div class = "form-group">
                                 <mat-form-field>
-                                    <mat-label> Email: </mat-label>
-                                    <input matInput placeholder="Email Address" formControlName="email" class="form-control" type="email"/>
+                                    <mat-label> {{'Login.email' | translate}} </mat-label>
+                                    <input matInput placeholder='{{"Login.placeholderEmail" | translate}}' formControlName="email" class="form-control" type="email"/>
                                     <div class="error" *ngIf="loginForm.controls['email'].errors?.['pattern']">
-                                        Wrong email
+                                        {{'Login.wrong_email' | translate}}
                                     </div>
                                 </mat-form-field>
                             </div>
                             <div class = "form-group">
                                 <mat-form-field>
-                                <mat-label>Password: </mat-label>
-                                <input matInput placeholder="Password" formControlName="password" class="form-control" type="password" />
+                                <mat-label>{{'Login.password' | translate}} </mat-label>
+                                <input matInput placeholder='{{"Login.placeholderPass" | translate}}' formControlName="password" class="form-control" type="password" />
                                 </mat-form-field>
                             </div>                            
-                            <button class="btn btn-success" type="submit" [disabled]=!loginForm.valid>Login</button>
+                            <button class="btn btn-success" type="submit" [disabled]=!loginForm.valid>{{'Login.loginText' | translate}}</button>
                         </form>
-                        <a class="btn" [routerLink]="['/registration']">sign up</a>
+                        <a class="btn" [routerLink]="['/registration']">{{'Login.sign_up' | translate}}</a>
                     </div>
                 </div>
             </div>

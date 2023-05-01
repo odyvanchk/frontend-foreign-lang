@@ -1,0 +1,40 @@
+{
+    "appBar": {
+        "options": {
+            "login" : "Войти",
+            "registration" : "Зарегистрироваться",
+            "search" : "Поиск",
+            "profile": "Профиль"
+        },
+        "select_languages": "Выбрать язык"
+    },
+    "Login" : {
+        "loginText" : "Вход" ,
+        "email" : "Почта: ",
+        "wrong_email" : "Неверная почта",
+        "placeholderEmail": "Почта",
+        "placeholderPass": "Пароль",
+        "password" : "Пароль: ",
+        "sign_up": "Зарегистрироваться"
+    },
+
+    "Registration" : {
+        "Text" : "Вход" ,
+        "login" : "Логин",
+        "wrong_login": "Логин должен содержать 4-15 символов",
+        "email" : "Почта: ",
+        "wrong_email" : "Неверная почта",
+        "choose_role": "Выбирите хотя бы одну роль",
+        "wrong_pass": "Пароль должен содержать 8-20 символов, [a-z], [A-Z], [0-9] ",
+        "pass_not_equal" : "Пароль не совпадает",
+        "placeholderEmail": "Почта",
+        "placeholderPass": "Пароль",
+        "password" : "Пароль: ",
+        "confirm_password" : "Подтвердите пароль:",
+        "teacher": "Учитель",
+        "student": "Студент",
+        "save": "Сохранить",
+        "sign_in": "Войти"
+    }
+    
+}

@@ -1,7 +1,14 @@
 <router-outlet>
     <mat-toolbar >
+       
         <mat-toolbar-row>
             <app-header title="ForePoint" [isUserLoggedIn]=false ></app-header>
+            <p class="selectText">
+                {{'appBar.select_languages' | translate}}
+              <select [(ngModel)]="selected" (ngModelChange)="changeLanguage()" >
+                <option *ngFor="let item of supportedLanguages" >{{item}}</option>
+            </select>
+              </p>
             <div class="flex-stretch"></div>
             <mat-icon class="mr-8">brightness_5</mat-icon>
             <mat-slide-toggle [formControl]="toggleControl" class="mr-8">
