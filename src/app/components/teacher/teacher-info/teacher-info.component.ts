@@ -11,20 +11,25 @@ import { requiredFileType } from '../../../validators/validators';
 export class TeacherInfoComponent implements OnInit {
 
   teacherInfoForm = new FormGroup({
-    country: new FormControl('', [Validators.required]),
-    experience: new FormControl(0, [Validators.required]),
+    country: new FormControl([Validators.required]),
+    experience: new FormControl([Validators.required]),
     description: new FormControl('', [Validators.maxLength(1000)]),
     image: new FormControl(new File([],''), [Validators.required]),
     isNative: new FormControl(false),
     level: new FormControl('', Validators.required),
     defaultPrice: new FormControl(0, Validators.min(1)),
-    language: new FormControl()
-  });
+    language: new FormControl(Validators.required)
+  },
+  { validators: [ requiredFileType ]}
+  );
+  display: FormControl = new FormControl("", Validators.required);
+  hasImage: boolean = false;
 
   constructor(private teacherService: TeacherService) { }
 
   public updateFile(event : any) {
     this.teacherInfoForm.controls['image'].setValue(event.target.files[0]);
+    this.display.setValue(event.target.files[0].name)
   }
 
   public onSubmitForm() {

@@ -33,7 +33,10 @@ import { ScheduleService } from './service/ScheduleService';
 import { TeacherDetailComponent } from './components/teacher/teacher-detail/teacher-detail.component';
 import { StudentService } from './service/StudentService';
 import {MatPaginatorModule} from '@angular/material/paginator';
-import { TeachersScheduleComponent } from './teachers-schedule/teachers-schedule.component';
+import { TeachersLessonsComponent } from './components/teacher/teachers-lessons/teachers-lessons.component';
+import { TeacherLessonService } from './service/lessons/TeacherLessonService';
+import { StudentLessonService } from './service/lessons/StudentLessonService';
+import { MatSelect, MatSelectModule } from '@angular/material/select';
 
 
 @NgModule({
@@ -50,7 +53,7 @@ import { TeachersScheduleComponent } from './teachers-schedule/teachers-schedule
     TeachersListComponent,
     TeacherScheduleComponent,
     TeacherDetailComponent,
-    TeachersScheduleComponent,
+    TeachersLessonsComponent
   ],
   imports: [
     BrowserModule,
@@ -66,6 +69,7 @@ import { TeachersScheduleComponent } from './teachers-schedule/teachers-schedule
     MatCheckboxModule,
     MatButtonModule,
     MatCardModule,
+    MatSelectModule,
     MatPaginatorModule,
     MatIconModule,
     MatDialogModule,
@@ -79,6 +83,8 @@ import { TeachersScheduleComponent } from './teachers-schedule/teachers-schedule
     TeacherService,
     ScheduleService,
     StudentService,
+    TeacherLessonService,
+    StudentLessonService,
     {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}  
   ],
   bootstrap: [AppComponent]

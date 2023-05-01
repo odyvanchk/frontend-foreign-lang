@@ -1,0 +1,51 @@
+<div class = "height mat-app-background" >
+    <h3 class="display-4 headline-6 ">Teachers Lessons</h3>
+    <div class="d-flex flex-column align-items-center justify-content-center" style="gap: 10px">
+    <div class="d-flex justify-content-start" style="gap: 5px">
+        <button mat-raised-button (click)="getPast(defaultPageEvent())" [ngClass]="{'mat-accent': !futureBtnActive}">
+        past
+        </button>
+        <button mat-raised-button  (click)="getFuture(defaultPageEvent())" [ngClass]="{'mat-accent': futureBtnActive}">
+            future
+        </button>
+    </div>
+    
+        <div class = "d-flex gap flex-sm-column" style="min-width: 50%">
+            <mat-card class="day-column card d-flex flex-row justify-content-between" *ngFor="let lesson of lessonsList">
+                <div class="content">
+                <div>
+                    <mat-label  class="mat-label">Time: </mat-label>
+                    <mat-label class="col-sm day">{{lesson.dateTime | date : 'MMM d, y   HH:mm' }}</mat-label> 
+                </div>
+
+                <div>
+                    <mat-label class="mat-label">Status: </mat-label>
+                    <mat-label class="col-sm day">{{lesson.status}}</mat-label>
+                </div>
+
+                <div>
+                    <mat-label class="mat-label">Student: </mat-label>
+                    <mat-label class="col-sm day">{{lesson.idStudent}}</mat-label>
+                </div>
+                <div>
+                    <mat-label class="mat-label">Note from student: </mat-label>
+                    <mat-label class="col-sm day">{{lesson.note}}</mat-label>
+                </div>
+            </div>
+            <div class="d-flex flex-sm-column gap">
+                <button *ngIf="lesson.status == 'BOOKED'" (click)="cancelLesson(lesson)" mat-raised-button color="primary">        
+                    cancel
+                </button>
+            </div>
+            
+            </mat-card>
+            <mat-paginator class="mat-app-background" #paginator [length]="totalCount"
+              [pageSize]="pageSize"
+              [pageIndex]="currentPage"
+              (page)="pageEvent = getServerData($event)">
+            </mat-paginator>
+        </div>
+    </div>
+</div>
+       
+            

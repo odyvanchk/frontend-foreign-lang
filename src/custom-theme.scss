@@ -29,8 +29,8 @@ $front_diploma-theme: mat.define-light-theme((
 $front_diploma-dark-theme: mat.define-dark-theme((
   color: (
     primary: mat.define-palette(mat.$gray-palette),
-    accent: mat.define-palette(mat.$gray-palette),
-    warn: mat.define-palette(mat.$red-palette),
+    accent: mat.define-palette(mat.$indigo-palette, A200, A100, A400),
+    warn: mat.define-palette(mat.$indigo-palette),
   )
 ));
 

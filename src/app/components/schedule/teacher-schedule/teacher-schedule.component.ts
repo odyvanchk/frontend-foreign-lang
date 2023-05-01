@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ScheduleService } from '../../../service/ScheduleService';
-import { ITimeSlot, InputTimeSlots, TimeSlot } from '../timeslots/timeslots.component';
+import { ITimeSlot, InputTimeSlots, TimeSlot, getLocalDay } from '../timeslots/timeslots.component';
 
 
 enum Command {
@@ -89,6 +89,11 @@ export class TeacherScheduleComponent implements OnInit {
     this.startWeekDate = this.getMonday()
     this.finishWeekDate.setDate(this.startWeekDate.getDate() + 6)
 
+    this.currentStartWeekDate.setHours(0);
+    this.currentStartWeekDate.setMinutes(0);
+    this.currentStartWeekDate.setSeconds(0);
+    this.currentStartWeekDate.setMilliseconds(0);
+
     this.startWeekDate.setHours(0);
     this.startWeekDate.setMinutes(0);
     this.startWeekDate.setSeconds(0);
@@ -104,20 +109,14 @@ export class TeacherScheduleComponent implements OnInit {
     .get(this.id, this.startWeekDate.getTime(), this.finishWeekDate.getTime())
     .subscribe({
       next: (res) => {
-        this.setUTCZoneToDate(res)
+        setUTCZoneToDate(res)
         this.slots = this.getSlotsFromRes(res);
+        this.disablePastSlots()
       },
       error: (er) => {
         // alert("smth goes wrong")
       }
     })
-  }
-
-
-  setUTCZoneToDate(res: any) {
-    res.forEach((element: any) => {
-      element.dateTimeStart = new Date(element.dateTimeStart + '.000Z');
-    });
   }
 
 
@@ -137,7 +136,7 @@ export class TeacherScheduleComponent implements OnInit {
   getTimeSlots(res : any, day: number, weekDay: string) : InputTimeSlots {
     let daySlots = this.generateDaySlots(day);
     res.forEach((element:any) => {
-      if (element.dateTimeStart.getDay() ==  (this.startWeekDate.getDay() + day)) {
+      if (getLocalDay(element.dateTimeStart) ==  getLocalDay(this.startWeekDate) + day) {
         daySlots.forEach((time) => {
           if (time.time.getTime() == element.dateTimeStart.getTime()) {
             if (element.available == true) {
@@ -219,8 +218,9 @@ export class TeacherScheduleComponent implements OnInit {
     .subscribe({
       next: (res) => {
         console.log(res)
-        this.setUTCZoneToDate(res)
+        setUTCZoneToDate(res)
         this.slots = this.getSlotsFromRes(res);
+        this.disablePastSlots()
       },
       error: (er) => {
         alert("smth goes wrong")
@@ -245,4 +245,22 @@ export class TeacherScheduleComponent implements OnInit {
     this.finishWeekDate = datefinish 
   }
 
+  disablePastSlots() {
+    if (this.currentStartWeekDate.getTime() == this.startWeekDate.getTime()) {
+      for (let i = 0; i <= getLocalDay(new Date()); i++) {
+        let today = new Date();
+        this.slots[i].timeslots.forEach((el) => {
+          if (el.time.getTime() < today.getTime()) {
+            el.isDisabled =true;
+          }
+        })
+      }
+    }  
+  }
+}
+
+export function setUTCZoneToDate(res: any) {
+  res.forEach((element: any) => {
+    element.dateTimeStart = new Date(element.dateTimeStart + '.000Z');
+  });
 }
