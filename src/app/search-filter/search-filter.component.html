@@ -1,71 +1,86 @@
-<div>
-    <div class = "container mat-app-background">
+<div class="mat-app-background">
+    <div class = "container ">
          <div class = "rowFlex">
              <div class = "myCard col-md-6 offset-md-3 offset-md-3">
-                 <h3>Teacher Info</h3>
+                 <h3 class="display-4 headline-6 ">Search teacher by criteria</h3>
                  <div class = "card-body mat-app-background">
                     <form [formGroup]="searchCriteria" (ngSubmit)="onSubmitForm()">
                         <div class = "form-group">
-                        <!-- <mat-form-field> -->
-                            <mat-label> Language: </mat-label>
-                            <select name="language" formControlName="language"  id="language">
-                                <option value="ENGLISH">English</option>
-                                <option value="SPANISH">Spanish</option>
-                                <option value="ITALIAN">Italian</option>
-                                <option value="GERMAN">German</option>
-                            </select>
-                        <!-- </mat-form-field> -->
+                        <mat-form-field >
+                            <mat-label>Language:</mat-label>
+                            <mat-select matNativeControl formControlName="language" >
+                                <mat-option value="ENGLISH">English</mat-option>
+                                <mat-option value="SPANISH">Spanish</mat-option>
+                                <mat-option value="ITALIAN">Italian</mat-option>
+                                <mat-option value="GERMAN">German</mat-option>
+                            </mat-select>
+                          </mat-form-field>
                         </div>
-                        
+            
                         <div class = "form-group">
-                            <label> Language level from: </label>
-                            <select  name="levelFrom" formControlName="levelFrom"  class="form-control" id="levelFrom">
-                                <option value="ELEMENTARY">Elementary</option>
-                                <option value="PRE_INTERMEDIATE">Pre-intermediate</option>
-                                <option value="INTERMEDIATE">Intermediate</option>
-                                <option value="UPPER_INTERMEDIATE">Upper-intermediate</option>
-                                <option value="ADVANCED">Advanced</option>
-                                <option value="PROFESSIONAL">Professional</option>
-                            </select>
+                            <mat-form-field >
+                                <mat-label>Language level from:</mat-label>
+                                <mat-select matNativeControl formControlName="levelFrom" >
+                                    <mat-option value="ELEMENTARY">Elementary</mat-option>
+                                    <mat-option value="PRE_INTERMEDIATE">Pre-intermediate</mat-option>
+                                    <mat-option value="INTERMEDIATE">Intermediate</mat-option>
+                                    <mat-option value="UPPER_INTERMEDIATE">Upper-intermediate</mat-option>
+                                    <mat-option value="ADVANCED">Advanced</mat-option>
+                                    <mat-option value="PROFESSIONAL">Professional</mat-option>
+                                </mat-select>
+                              </mat-form-field>
                         </div>
+                       
                         <div class = "form-group">
-                        <mat-label> Country: </mat-label>
-                        <select name="country" formControlName="country"  class="form-control" id="country">
-                            <option value="BELARUS">Belarus</option>
-                            <option value="CANADA">Canada</option>
-                            <option value="USA">USA</option>
-                            <option value="UK">UK</option>
-                            <option value="RUSSIA">Russia</option>
-                        </select>
+                                <mat-form-field >
+                                    <mat-label>Country:</mat-label>
+                                    <mat-select matNativeControl formControlName="country" >
+                                        <mat-option value="BELARUS">Belarus</mat-option>
+                                        <mat-option value="CANADA">Canada</mat-option>
+                                        <mat-option value="USA">USA</mat-option>
+                                        <mat-option value="UK">UK</mat-option>
+                                        <mat-option value="RUSSIA">Russia</mat-option>
+                                    </mat-select>
+                                  </mat-form-field>
                         </div>
-
-                        <div class="nativeOption">
-                            <mat-checkbox 
+                        <div class="nativeOption form-group">
+                        <mat-checkbox
                             id="isNative"
                             formControlName="isNative">
                             Is native
-                            </mat-checkbox>
+                        </mat-checkbox>
                         </div>
-                        <div class = "form-group">
-                            <mat-label> Expirience from: </mat-label>
-                            <input matInput placeholder="Expirience in years" formControlName="experienceFrom" class="form-control" type="number"/>
 
-                            <mat-label> Expirience to: </mat-label>
-                            <input matInput placeholder="Expirience in years" formControlName="experienceTo" class="form-control" type="number"/>
-                        </div>
                         <div class = "form-group">
-                            <mat-label> Mark from: </mat-label>
-                            <input matInput placeholder="Mark" formControlName="markFrom" class="form-control" type="number"/>
+                            <mat-form-field class = "form-group">
+                                <mat-label> Expirience from: </mat-label>
+                                <input matInput placeholder="Expirience in years" formControlName="experienceFrom" class="form-control" type="number"/>
+                            </mat-form-field>
 
-                            <mat-label> Mark to: </mat-label>
-                            <input matInput placeholder="Mark" formControlName="markTo" class="form-control" type="number"/>
+                            <mat-form-field class = "form-group">
+                                <mat-label> Expirience to: </mat-label>
+                                <input matInput placeholder="Expirience in years" formControlName="experienceTo" class="form-control" type="number"/>
+                            </mat-form-field>
                         </div>
                         <div class = "form-group">
-                            <mat-label> Price per hour from: </mat-label>
-                            <input matInput placeholder="Price in usd" formControlName="defaultPriceFrom" class="form-control" type="number"/>
-                            
-                            <mat-label> Price per hour to: </mat-label>
-                            <input matInput placeholder="Price in usd" formControlName="defaultPriceTo" class="form-control" type="number"/>
+                            <mat-form-field class = "form-group">
+                                <mat-label> Mark from: </mat-label>
+                                <input matInput placeholder="Mark" formControlName="markFrom" class="form-control" type="number"/>
+                            </mat-form-field>
+                            <mat-form-field class = "form-group">
+                                <mat-label> Mark to: </mat-label>
+                                <input matInput placeholder="Mark" formControlName="markTo" class="form-control" type="number"/>
+                            </mat-form-field>
+                        </div>
+                        <div class = "form-group">
+                            <mat-form-field class = "form-group">
+                                <mat-label> Price per hour from: </mat-label>
+                                <input matInput placeholder="Price in usd" formControlName="defaultPriceFrom" class="form-control" type="number"/>
+                            </mat-form-field>
+                            <mat-form-field class = "form-group">
+                                <mat-label> Price per hour to: </mat-label>
+                                <input matInput placeholder="Price in usd" formControlName="defaultPriceTo" class="form-control" type="number"/>
+                            </mat-form-field>
                         </div>
                         <button class="btn btn-success" type="submit">Search</button>
                 </form>

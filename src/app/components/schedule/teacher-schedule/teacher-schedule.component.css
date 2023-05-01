@@ -23,12 +23,11 @@
 
 .btn-time {
       align-items: center;
-      background-color: #eae7e7;
       border: 1px solid rgba(13, 11, 11, 0.1);
       border-radius: .25rem;
       box-shadow: rgba(19, 17, 17, 0.02) 0 1px 3px 0;
       box-sizing: border-box;
-      color: rgba(0, 0, 0, 0.85);
+      /* color: rgba(0, 0, 0, 0.85); */
       cursor: pointer;
       display: inline-flex;
       font-family: system-ui,-apple-system,system-ui,"Helvetica Neue",Helvetica,Arial,sans-serif;
@@ -70,3 +69,7 @@
     }
 
 
+    h3 {
+      text-align: center;
+      font-size: 2.5rem;
+  }
