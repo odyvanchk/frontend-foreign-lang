@@ -6,22 +6,23 @@
       <div class="nav">
       <div class="nav-item" *ngIf="role==='student'">
         <a mat-button class="nav-link mat-app-background" routerLink="/search">
-          SEARCH
+          {{'appBar.options.search' | translate}}
         </a>
       </div>
       <div class="nav-item" *ngIf="!isUserLoggedIn">
         <a mat-button class="nav-link mat-app-background" routerLink="/login">
-          LOGIN
+          {{'appBar.options.login' | translate}}
+
         </a>
       </div>
       <div class="nav-item" >
         <a mat-button class="nav-link mat-app-background" routerLink="/profile">
-          PROFILE
+          {{'appBar.options.profile' | translate}}
         </a>
       </div>
       <div class="nav-item" *ngIf="isUserLoggedIn">
         <a mat-button class="nav-link mat-app-background" routerLink="/search">
-          LOGOUT
+          {{'appBar.options.logout' | translate}}
         </a>
       </div>
     </div>

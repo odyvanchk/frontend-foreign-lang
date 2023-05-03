@@ -14,7 +14,7 @@ export class RegistrationComponent implements OnInit {
 
   regForm = new FormGroup({
     login: new FormControl('', [Validators.required, Validators.minLength(4), 
-                                  Validators.maxLength(15)]),
+                                  Validators.maxLength(60)]),
     password: new FormControl('', [Validators.required, Validators.minLength(8), 
                                     Validators.maxLength(20), Validators.pattern(/[a-zA-Z0-9]+/i)]),
     confirmPassword: new FormControl('', [Validators.required]),

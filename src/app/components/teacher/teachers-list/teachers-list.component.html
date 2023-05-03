@@ -1,38 +1,38 @@
 <div class = "height mat-app-background" >
-    <h3 class="headline-3">Teachers List</h3>
+    <h3 class="headline-3">{{'Teacher_list.title' | translate}}</h3>
     <div class="d-flex align-items-center justify-content-center">
     <br>
-        <div class = "d-flex gap flex-sm-column" style="min-width: 50%">
+        <div class = "d-flex gap flex-sm-column" style="min-width: 60%">
             <mat-card class="day-column card d-flex flex-row" *ngFor="let teacher of teachersList">
                 
                 <img src="https://play.min.io/courses/{{teacher.photoRef}}">
                 <div class="content">
                 <div>
-                    <mat-label  class="mat-label">Country: </mat-label>
+                    <mat-label  class="mat-label">{{'Teacher_list.country' | translate}} : </mat-label>
                     <mat-label class="col-sm day">{{teacher.country}}</mat-label> 
                 </div>
 
                 <div>
-                    <mat-label class="mat-label">Language: </mat-label>
+                    <mat-label class="mat-label">{{'Teacher_list.language' | translate}}: </mat-label>
                     <mat-label class="col-sm day">{{teacher.language}}</mat-label>
                 </div>
 
                 <div>
-                    <mat-label class="mat-label">Level: </mat-label>
+                    <mat-label class="mat-label">{{'Teacher_list.level' | translate}}: </mat-label>
                     <mat-label class="col-sm day">{{teacher.level}}</mat-label>
                 </div>
 
                 <div>
-                    <mat-label class="mat-label">Price per hour: </mat-label>
+                    <mat-label class="mat-label">{{'Teacher_list.price' | translate}} : </mat-label>
                     <mat-label class="col-sm day">{{teacher.defaultPrice}}</mat-label>
                 </div>
             </div>
             <div class="d-flex flex-sm-column gap">
                 <button routerLink="/teachers/{{teacher.id}}" mat-raised-button color="primary">        
-                    more..
+                    {{'Teacher_list.more' | translate}}
                 </button>
                 <button (click)="addToBlackList(teacher.id)" mat-raised-button color="primary">        
-                    add to black list
+                    {{'Teacher_list.black' | translate}}
                 </button>
             </div>
             

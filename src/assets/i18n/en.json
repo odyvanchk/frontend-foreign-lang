@@ -1,10 +1,11 @@
 {
     "appBar": {
         "options": {
-            "login" : "Login",
-            "registration" : "registration",
-            "search" : "search",
-            "profile": "profile"
+            "login" : "LOGIN",
+            "registration" : "REGISTER",
+            "search" : "SEARCH",
+            "profile": "PROFILE",
+            "logout" : "LOGOUT"
         },
         "select_languages": "Change language"
     },
@@ -34,5 +35,116 @@
         "choose_role": "Choose at least one Role",
         "save": "Save", 
         "sign_in": "Sign In"
-    }
+    },
+    "Search" : {
+        "title" : "Search teacher by criteria",
+        "language" : "language",
+        "english" : "English",
+        "spanish" : "Spanish",
+        "italian" : "Italian",
+        "german" : "German",
+        "language_level" : "Language level from",
+        "elementary" : "Elementary",
+        "pre_int" : "Pre-intermediate",
+        "int" : "Intermediate",
+        "upper_int" : "Upper-intermediate",
+        "advanced" : "Advanced",
+        "proff" : "Professional",
+        "country" : "Country",
+        "belarus" : "Belarus",
+        "canada" : "Canada",
+        "usa" : "USA",
+        "uk" : "UK",
+        "russia" : "Russia",
+        "is_native" : "Is native",
+        "exp_from" : "Expirience from",
+        "exp_from_placeh" : "Expirience in years",
+        "exp_to" : "Expirience to",
+        "exp_to_placeh" : "Expirience in years",
+        "mark_from" : "Mark from",
+        "mark_from_placeh" : "mark",
+        "mark_to" : "Mark to",
+        "mark_to_placeh" : "mark",
+        "price_from" : "Price per hour from",
+        "price_from_placeh" : "Price in usd",
+        "price_to" : "Price per hour to",
+        "price_to_placeh" : "Price in usd",
+        "submit" : "Search"
+    },
+    "Teacher_list" : {
+        "title" : "Teachers List",
+        "country" : "Country",
+        "language" : "Language",
+        "level" : "Level",
+        "price" : "Price per hour",
+        "more" : "more..",
+        "black" : "add to black list"
+    },
+    "Teacher_info" : {
+        "title" : "Teachers info",
+        "language" : "language",
+        "english" : "English",
+        "spanish" : "Spanish",
+        "italian" : "Italian",
+        "german" : "German",
+        "language_level" : "Language level",
+        "elementary" : "Elementary",
+        "pre_int" : "Pre-intermediate",
+        "int" : "Intermediate",
+        "upper_int" : "Upper-intermediate",
+        "advanced" : "Advanced",
+        "proff" : "Professional",
+        "country" : "Country",
+        "belarus" : "Belarus",
+        "canada" : "Canada",
+        "usa" : "USA",
+        "uk" : "UK",
+        "russia" : "Russia",
+        "is_native" : "Is native",
+        "expirience" : "Expirience",
+        "exp_placeh" : "Expirience in years",
+        "price" : "Price per hour",
+        "price_placeh" : "Price in usd",
+        "description" : "Description",
+        "desc_placeh" : "Write a couple of words about you",
+        "file" : "Attach photo",
+        "file_error" : "this field is required",
+        "submit" : "Save"
+        },
+        "Teacher_detail" : {
+            "title" : "Teacher",
+            "country" : "Country",
+            "language" : "Language",
+            "language_level" : "Language level",
+            "expirience" : "Expirience",
+            "price" : "Price per hour",
+            "description" : "Description",
+            "mark" : "Mark",
+            "schedule" : "Schedule"
+        },    
+        "Schedule" : {
+            "title" : "Schedule",
+            "days" :
+            [
+                "Monday", 
+                "Tuesday",            
+                "Wednesday",
+                "Thersday",
+                "Friday",
+                "Saturday",
+                "Sunday"
+            ],
+            "save" : "Book"
+        },
+        "Teacher_lesson" : {
+            "title" : "Teachers Lessons",
+            "past" : "past",
+            "future" : "future",
+            "time" : "Time",
+            "status" : "Status",
+            "student" : "Student",
+            "note" : "Note from student",
+            "cancel" : "cancel"
+        }
+
 }

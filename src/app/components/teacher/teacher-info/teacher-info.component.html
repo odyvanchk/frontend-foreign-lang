@@ -2,44 +2,44 @@
     <div class = "container ">
          <div class = "rowFlex">
              <div class = "myCard col-md-6 offset-md-3 offset-md-3">
-                 <h3>Teacher Info</h3>
+                 <h3>{{'Teacher_info.title' | translate}}</h3>
                  <div class = "card-body ">
                     <form [formGroup]="teacherInfoForm" (ngSubmit)="onSubmitForm()" class="d-flex flex-column">
                         <div class = "form-group">
                         <mat-form-field >
-                            <mat-label>Language:</mat-label>
+                            <mat-label> {{'Teacher_info.title' | translate}} :</mat-label>
                             <mat-select matNativeControl required formControlName="language" >
-                                <mat-option value="ENGLISH">English</mat-option>
-                                <mat-option value="SPANISH">Spanish</mat-option>
-                                <mat-option value="ITALIAN">Italian</mat-option>
-                                <mat-option value="GERMAN">German</mat-option>
+                                <mat-option value="ENGLISH">{{'Teacher_info.english' | translate}}</mat-option>
+                                <mat-option value="SPANISH">{{'Teacher_info.spanish' | translate}}</mat-option>
+                                <mat-option value="ITALIAN">{{'Teacher_info.italian' | translate}}</mat-option>
+                                <mat-option value="GERMAN">{{'Teacher_info.german' | translate}}</mat-option>
                             </mat-select>
                           </mat-form-field>
                         </div>
             
                         <div class = "form-group">
                             <mat-form-field >
-                                <mat-label>Language level:</mat-label>
+                                <mat-label>{{'Teacher_info.language_level' | translate}} :</mat-label>
                                 <mat-select matNativeControl required formControlName="level" >
-                                    <mat-option value="ELEMENTARY">Elementary</mat-option>
-                                    <mat-option value="PRE_INTERMEDIATE">Pre-intermediate</mat-option>
-                                    <mat-option value="INTERMEDIATE">Intermediate</mat-option>
-                                    <mat-option value="UPPER_INTERMEDIATE">Upper-intermediate</mat-option>
-                                    <mat-option value="ADVANCED">Advanced</mat-option>
-                                    <mat-option value="PROFESSIONAL">Professional</mat-option>
+                                    <mat-option value="ELEMENTARY">{{'Teacher_info.elementary' | translate}}</mat-option>
+                                    <mat-option value="PRE_INTERMEDIATE">{{'Teacher_info.pre_int' | translate}}</mat-option>
+                                    <mat-option value="INTERMEDIATE">{{'Teacher_info.int' | translate}}</mat-option>
+                                    <mat-option value="UPPER_INTERMEDIATE">{{'Teacher_info.upper_int' | translate}}</mat-option>
+                                    <mat-option value="ADVANCED">{{'Teacher_info.advanced' | translate}}</mat-option>
+                                    <mat-option value="PROFESSIONAL">{{'Teacher_info.proff' | translate}}</mat-option>
                                 </mat-select>
                               </mat-form-field>
                             </div>
                        
                             <div class = "form-group">
                                 <mat-form-field >
-                                    <mat-label>Country:</mat-label>
+                                    <mat-label>{{'Teacher_info.country' | translate}} :</mat-label>
                                     <mat-select matNativeControl required formControlName="country" >
-                                        <mat-option value="BELARUS">Belarus</mat-option>
-                                        <mat-option value="CANADA">Canada</mat-option>
-                                        <mat-option value="USA">USA</mat-option>
-                                        <mat-option value="UK">UK</mat-option>
-                                        <mat-option value="RUSSIA">Russia</mat-option>
+                                        <mat-option value="BELARUS">{{'Teacher_info.belarus' | translate}}</mat-option>
+                                        <mat-option value="CANADA">{{'Teacher_info.canada' | translate}}</mat-option>
+                                        <mat-option value="USA">{{'Teacher_info.usa' | translate}}</mat-option>
+                                        <mat-option value="UK">{{'Teacher_info.uk' | translate}}</mat-option>
+                                        <mat-option value="RUSSIA">{{'Teacher_info.russia' | translate}}</mat-option>
                                     </mat-select>
                                   </mat-form-field>
                                 </div>
@@ -48,29 +48,29 @@
                             id="isNative"
                             formControlName="isNative"
                             >
-                            Is native
+                        {{'Teacher_info.is_native' | translate}}                       
                         </mat-checkbox>
 
                         </div>
 
                         <mat-form-field class = "form-group">
-                            <mat-label> Expirience: </mat-label>
-                            <input matInput placeholder="Expirience in years"  formControlName="experience" class="form-control" type="number"/>
+                            <mat-label> {{'Teacher_info.expirience' | translate}} : </mat-label>
+                            <input matInput placeholder="{{'Teacher_info.exp_placeh' | translate}}"  formControlName="experience" class="form-control" type="number"/>
                         </mat-form-field>
                         <mat-form-field class = "form-group">
-                            <mat-label> Price per hour: </mat-label>
-                            <input matInput placeholder="Price in usd"  formControlName="defaultPrice" class="form-control" type="number"/>
+                            <mat-label> {{'Teacher_info.price' | translate}} : </mat-label>
+                            <input matInput placeholder="{{'Teacher_info.price_placeh' | translate}}"  formControlName="defaultPrice" class="form-control" type="number"/>
                         </mat-form-field>
                         <mat-form-field class = "form-group">
-                            <mat-label> Description: </mat-label>
-                            <textarea matInput placeholder="Write a couple of words about you"  formControlName="description" class="form-control"></textarea>
+                            <mat-label> {{'Teacher_info.description' | translate}} : </mat-label>
+                            <textarea matInput placeholder="{{'Teacher_info.desc_placeh' | translate}}"  formControlName="description" class="form-control"></textarea>
                         </mat-form-field>
                         <!-- <mat-form-field class = "form-group">
                             <input matInput type="file" (input)="updateFile($event)"  class="form-control">
                         </mat-form-field> -->
                     
                         <mat-form-field style="width: 100%;">
-                            <mat-label>File matInput</mat-label>
+                            <mat-label>{{'Teacher_info.file' | translate}}</mat-label>
                             <button type="button" mat-icon-button matPrefix (click)="f_input.click()">
                         <mat-icon>attach_file</mat-icon>
                       </button>
@@ -83,9 +83,9 @@
                        #f_input
                         (change)="updateFile($event)"
                       />
-                            <mat-error>this field is required</mat-error>
+                            <mat-error>{{'Teacher_info.file_error' | translate}}</mat-error>
                         </mat-form-field>
-                        <button class="btn btn-success" type="submit" [disabled]=!teacherInfoForm.valid>Save</button>
+                        <button class="btn btn-success" type="submit" [disabled]=!teacherInfoForm.valid>{{'Teacher_info.submit' | translate}}</button>
                 </form>
             </div>
         </div>

@@ -230,6 +230,10 @@ export class TimeslotsComponent implements OnInit {
     this.startWeekDate = date;
     this.finishWeekDate = datefinish 
   }
+
+  isChangeArrEmty() :boolean {
+    return this.selected.length == 0
+  }
 }
 
 export function getLocalDay(date : Date) {

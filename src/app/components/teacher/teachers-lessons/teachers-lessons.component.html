@@ -1,12 +1,12 @@
 <div class = "height mat-app-background" >
-    <h3 class="display-4 headline-6 ">Teachers Lessons</h3>
+    <h3 class="display-4 headline-6 ">{{'Teacher_lesson.title' | translate}}</h3>
     <div class="d-flex flex-column align-items-center justify-content-center" style="gap: 10px">
     <div class="d-flex justify-content-start" style="gap: 5px">
         <button mat-raised-button (click)="getPast(defaultPageEvent())" [ngClass]="{'mat-accent': !futureBtnActive}">
-        past
+            {{'Teacher_lesson.past' | translate}}
         </button>
         <button mat-raised-button  (click)="getFuture(defaultPageEvent())" [ngClass]="{'mat-accent': futureBtnActive}">
-            future
+            {{'Teacher_lesson.future' | translate}}
         </button>
     </div>
     
@@ -14,27 +14,27 @@
             <mat-card class="day-column card d-flex flex-row justify-content-between" *ngFor="let lesson of lessonsList">
                 <div class="content">
                 <div>
-                    <mat-label  class="mat-label">Time: </mat-label>
-                    <mat-label class="col-sm day">{{lesson.dateTime | date : 'MMM d, y   HH:mm' }}</mat-label> 
+                    <mat-label  class="mat-label">{{'Teacher_lesson.time' | translate}} : </mat-label>
+                    <mat-label class="col-sm day">{{lesson.dateTime | date : 'd MMM y,   HH:mm' }}</mat-label> 
                 </div>
 
                 <div>
-                    <mat-label class="mat-label">Status: </mat-label>
+                    <mat-label class="mat-label">{{'Teacher_lesson.status' | translate}} : </mat-label>
                     <mat-label class="col-sm day">{{lesson.status}}</mat-label>
                 </div>
 
                 <div>
-                    <mat-label class="mat-label">Student: </mat-label>
+                    <mat-label class="mat-label">{{'Teacher_lesson.student' | translate}} : </mat-label>
                     <mat-label class="col-sm day">{{lesson.idStudent}}</mat-label>
                 </div>
                 <div>
-                    <mat-label class="mat-label">Note from student: </mat-label>
+                    <mat-label class="mat-label">{{'Teacher_lesson.note' | translate}}: </mat-label>
                     <mat-label class="col-sm day">{{lesson.note}}</mat-label>
                 </div>
             </div>
             <div class="d-flex flex-sm-column gap">
                 <button *ngIf="lesson.status == 'BOOKED'" (click)="cancelLesson(lesson)" mat-raised-button color="primary">        
-                    cancel
+                    {{'Teacher_lesson.cancel' | translate}}
                 </button>
             </div>
             
