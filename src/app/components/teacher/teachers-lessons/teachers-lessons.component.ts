@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, LOCALE_ID, OnInit } from '@angular/core';
 import { TeacherLessonService } from '../../../service/lessons/TeacherLessonService';
 import { PageEvent } from '@angular/material/paginator';
 import { setUTCZoneToDate } from '../../schedule/teacher-schedule/teacher-schedule.component';
@@ -47,7 +47,7 @@ export class TeachersLessonsComponent implements OnInit {
   futureBtnActive: boolean = true;
 FutureColor: string = 'accent';
 
-  constructor(private lessonService: TeacherLessonService) { }
+  constructor(@Inject(LOCALE_ID) public locale: string, private lessonService: TeacherLessonService) { }
 
   ngOnInit(): void {
     this.getServerData(this.defaultPageEvent())

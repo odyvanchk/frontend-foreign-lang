@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -33,13 +33,16 @@ import { ScheduleService } from './service/ScheduleService';
 import { TeacherDetailComponent } from './components/teacher/teacher-detail/teacher-detail.component';
 import { StudentService } from './service/StudentService';
 import {MatPaginatorModule} from '@angular/material/paginator';
-import { TeachersScheduleComponent } from './teachers-schedule/teachers-schedule.component';
 import {TranslateModule, TranslateLoader} from '@ngx-translate/core'
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import { TeachersLessonsComponent } from './components/teacher/teachers-lessons/teachers-lessons.component';
 import { TeacherLessonService } from './service/lessons/TeacherLessonService';
 import { StudentLessonService } from './service/lessons/StudentLessonService';
-import { MatSelect, MatSelectModule } from '@angular/material/select';
+import { MatSelectModule } from '@angular/material/select';
+import { SettingsService } from './service/SettingsService';
+import '@angular/common/locales/global/ru'
+import { LocaleService } from '../local';
+import { LocaleId } from './LocaleId';
 
 
 @NgModule({
@@ -97,6 +100,13 @@ import { MatSelect, MatSelectModule } from '@angular/material/select';
     StudentService,
     TeacherLessonService,
     StudentLessonService,
+    SettingsService,
+    LocaleService,
+    {
+      provide: LOCALE_ID,
+      useClass: LocaleId,
+      deps: [LocaleService],      
+    },
     {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}  
   ],
   bootstrap: [AppComponent]

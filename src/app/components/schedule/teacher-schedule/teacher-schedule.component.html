@@ -1,5 +1,5 @@
 <div class = " height mat-app-background" >
-    <h3 class=" display-4 headline-6" >Schedule</h3>
+    <h3 class=" display-4 headline-6" >{{'Schedule.title' | translate}}</h3>
     <div class="container">
     <div class=" d-flex align-items-center justify-content-around">
     <button [disabled]="hasPrevWeek()"
@@ -28,11 +28,11 @@
     <br>
     <form class="form" (ngSubmit)="onSubmitForm()">
         <div class = "d-flex justify-content-between">
-            <div class="d-flex flex-column align-items-center" *ngFor="let slot of slots">
+            <div class="d-flex flex-column align-items-center" *ngFor="let slot of slots; let indexOfelement=index;">
                     <!-- <a routerLink="/detail/{{slot.time}}">
                         <span class="badge">{{hero.id}}</span> {{hero.name}}
                     </a> -->
-            <mat-label class="day">{{slot.day}}</mat-label>
+            <mat-label class="day">{{'Schedule.days.'+indexOfelement | translate}}</mat-label>
             <div style="width: 100%" *ngFor="let time of slot.timeslots">
                 <button mat-raised-button type="button" [disabled]="time.isDisabled" class="btn-time" [ngClass]="{'mat-warn': time.selected}"
                     (click)="ngOnClickSlot(time)">{{time.time | date : 'HH:mm'}}</button>

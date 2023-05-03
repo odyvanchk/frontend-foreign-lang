@@ -1,8 +1,10 @@
-import { Component,HostBinding } from '@angular/core';
+import { Component,HostBinding, Inject, LOCALE_ID } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { OverlayContainer } from '@angular/cdk/overlay';
-import {TranslateService} from '@ngx-translate/core'
+import {LangChangeEvent, TranslateService} from '@ngx-translate/core'
+import { SettingsService } from './service/SettingsService';
+import { LocaleService } from '../local';
 
 @Component({
   selector: 'app-root',
@@ -11,20 +13,19 @@ import {TranslateService} from '@ngx-translate/core'
 })
 export class AppComponent {
   title = 'front_diploma';
-  selected:any = "ru";
+  selected : any = "en";
   supportedLanguages = ["en", "ru"];
   @HostBinding('class') className = '';
 
   toggleControl = new FormControl(false);
 
-  constructor(private dialog: MatDialog, private overlay: OverlayContainer, private translateService: TranslateService) {
-      this.translateService.addLangs(this.supportedLanguages);
-      this.translateService.setDefaultLang('ru');
+  constructor(private overlay: OverlayContainer, private localeService: LocaleService) {
+    this.localeService.initLocale('en');
    }
-  
+
    
   changeLanguage(){
-    this.translateService.use(this.selected);
+    this.localeService.setLocale(this.selected);
   }
 
   ngOnInit(): void {
@@ -37,6 +38,6 @@ export class AppComponent {
         this.overlay.getContainerElement().classList.remove(darkClassName);
       }
     });
-
+    
   }
 }
