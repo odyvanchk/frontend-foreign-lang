@@ -20,7 +20,7 @@
                             <div class = "form-group">
                                 <mat-form-field>
                                 <mat-label>{{'Registration.password' | translate}} </mat-label>
-                                    <input matInput placeholder='{{"Registration.password | translate}}' formControlName="password" class="form-control" type="password" />
+                                    <input matInput placeholder='{{"Registration.password" | translate}}' formControlName="password" class="form-control" type="password" />
                                 <div class="error" *ngIf=" regForm.controls['password'].errors?.['minlength'] || 
                                                             regForm.controls['password'].errors?.['pattern'] ||
                                                              regForm.controls['password'].errors?.['maxlength'] "  >

@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HelloComponent } from './components/hello/hello.component';
 import { LoginComponent } from './components/auth/login/login.component';
 import { RegistrationComponent } from './components/auth/registration/registration.component';
 import { TeacherInfoComponent } from './components/teacher/teacher-info/teacher-info.component';
@@ -13,7 +12,6 @@ import { TeacherDetailComponent } from './components/teacher/teacher-detail/teac
 const appRoutes: Routes = [
   { path: 'registration', component: RegistrationComponent },
   { path: 'login', component:  LoginComponent},
-  { path: 'hello', component: HelloComponent},
   { path: 'teachers/info', component: TeacherInfoComponent},
   { path: 'teachers/:id/schedule/book', component: TimeslotsComponent},
   { path: 'teachers/:id', component: TeacherDetailComponent},

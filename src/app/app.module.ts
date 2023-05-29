@@ -8,7 +8,6 @@ import { HttpClientModule, HTTP_INTERCEPTORS, HttpClient } from '@angular/common
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthInterceptor } from './interseptors/interseptor';
 import { LoginComponent } from './components/auth/login/login.component';
-import { HelloComponent } from './components/hello/hello.component';
 import { TeacherInfoComponent } from './components/teacher/teacher-info/teacher-info.component';
 import { TeacherService } from './service/TeacherService';
 import { HeaderComponent } from './components/header/header.component';
@@ -50,7 +49,6 @@ import { LocaleId } from './LocaleId';
     AppComponent,
     RegistrationComponent,
     LoginComponent,
-    HelloComponent,
     TeacherInfoComponent,
     HeaderComponent,
     TimeslotsComponent,

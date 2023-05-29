@@ -12,7 +12,7 @@
     "Login" : {
         "loginText" : "Sign In" ,
         "email" : "Email: ",
-        "wrong_email" : "Wrong_email",
+        "wrong_email" : "Wrong email",
         "placeholderEmail": "Email",
         "placeholderPass": "Password",
         "password" : "Password: ",
@@ -134,7 +134,7 @@
                 "Saturday",
                 "Sunday"
             ],
-            "save" : "Book"
+            "save" : "save"
         },
         "Teacher_lesson" : {
             "title" : "Teachers Lessons",

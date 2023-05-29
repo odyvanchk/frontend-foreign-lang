@@ -44,7 +44,7 @@ export class LoginComponent implements OnInit {
               localStorage.setItem('teacher','true')
             }
           });
-          this.router.navigate(['/hello'])
+          this.router.navigate(['/profile'])
           alert("user logged in")
       },
       error: (response) => {

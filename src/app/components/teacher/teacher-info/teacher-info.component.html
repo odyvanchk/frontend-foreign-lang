@@ -7,7 +7,7 @@
                     <form [formGroup]="teacherInfoForm" (ngSubmit)="onSubmitForm()" class="d-flex flex-column">
                         <div class = "form-group">
                         <mat-form-field >
-                            <mat-label> {{'Teacher_info.title' | translate}} :</mat-label>
+                            <mat-label> {{'Teacher_info.language' | translate}} :</mat-label>
                             <mat-select matNativeControl required formControlName="language" >
                                 <mat-option value="ENGLISH">{{'Teacher_info.english' | translate}}</mat-option>
                                 <mat-option value="SPANISH">{{'Teacher_info.spanish' | translate}}</mat-option>

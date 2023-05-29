@@ -77,6 +77,11 @@ FutureColor: string = 'accent';
     .subscribe({
       next: (res) => {
         alert("was cancelled")
+        this.lessonsList.forEach((el) => {
+          if (el.id == lesson.id) {
+            el.status = "CANCELLED_BY_TEACHER"
+          }
+        })
     },
     error: (res) => {
         alert("error")

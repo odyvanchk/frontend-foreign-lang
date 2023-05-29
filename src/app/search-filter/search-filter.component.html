@@ -1,4 +1,4 @@
-<div class="mat-app-background">
+<div class="height mat-app-background">
     <div class = "container ">
          <div class = "rowFlex">
              <div class = "myCard col-md-6 offset-md-3 offset-md-3">
@@ -62,16 +62,7 @@
                                 <input matInput placeholder="{{'Search.exp_to_placeh' | translate}}" formControlName="experienceTo" class="form-control" type="number"/>
                             </mat-form-field>
                         </div>
-                        <div class = "form-group">
-                            <mat-form-field class = "form-group">
-                                <mat-label> {{'Search.mark_from' | translate}} : </mat-label>
-                                <input matInput placeholder="{{'Search.mark_from_placeh' | translate}}" formControlName="markFrom" class="form-control" type="number"/>
-                            </mat-form-field>
-                            <mat-form-field class = "form-group">
-                                <mat-label> {{'Search.mark_to' | translate}} : </mat-label>
-                                <input matInput placeholder="{{'Search.mark_to_placeh' | translate}}" formControlName="markTo" class="form-control" type="number"/>
-                            </mat-form-field>
-                        </div>
+
                         <div class = "form-group">
                             <mat-form-field class = "form-group">
                                 <mat-label> {{'Search.price_from' | translate}} : </mat-label>
@@ -80,6 +71,16 @@
                             <mat-form-field class = "form-group">
                                 <mat-label> {{'Search.price_to' | translate}}: </mat-label>
                                 <input matInput placeholder="{{'Search.price_to_placeh' | translate}}" formControlName="defaultPriceTo" class="form-control" type="number"/>
+                            </mat-form-field>
+                        </div>
+                        <div class = "form-group">
+                            <mat-form-field class = "form-group">
+                                <mat-label> {{'Search.mark_from' | translate}} : </mat-label>
+                                <input matInput placeholder="{{'Search.mark_from_placeh' | translate}}" formControlName="markFrom" class="form-control" type="number"/>
+                            </mat-form-field>
+                            <mat-form-field class = "form-group">
+                                <mat-label> {{'Search.mark_to' | translate}} : </mat-label>
+                                <input matInput placeholder="{{'Search.mark_to_placeh' | translate}}" formControlName="markTo" class="form-control" type="number"/>
                             </mat-form-field>
                         </div>
                         <button class="btn btn-success" type="submit">{{'Search.submit' | translate}}</button>
